@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./asset/css/style.css">
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link href="./asset/themify-icons/themify-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="./asset/fonts/remixicon.css">
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark min-vh-100">
+                <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white position-fixed  min-vh-100">
+                    <a href="./index.html" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                        <i class="ri-arrow-go-back-line"></i> <span class="fs-5 d-none d-sm-inline">Về shop</span>
+                    </a>
+                    <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
+                        <li class="nav-item">
+                            <a href="admin.html" class="nav-link align-middle px-0">
+                                <i class="ri-home-fill"></i> <span class="ms-1 d-none d-sm-inline">Trang chủ</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="./donhang.html" class="nav-link px-0 align-middle">
+                                <i class="ri-file-list-3-fill"></i> <span class="ms-1 d-none d-sm-inline">Đơn hàng</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="./addProduct.html" class="nav-link px-0"><i class="ri-add-line"></i> <span class="d-none d-sm-inline">Thêm sản phẩm</span> </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="./productList.html" class="nav-link px-0"><i class="ri-list-settings-line"></i> <span class="d-none d-sm-inline">Danh sách sản phẩm</span> </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="./customer.html" class="px-0 align-middle">
+                                <i class="ri-file-user-line"></i> <span class="ms-1 d-none d-sm-inline">Khách hàng</span> </a>
+                        </li>
+                    </ul>
+                    <hr>
+                    <div class="dropdown pb-4">
+                        <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="./asset/image/Untitled.png" alt="hugenerd" width="30" height="30" class="rounded-circle">
+                            <span class="d-none d-sm-inline mx-1">loser</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
+                            <li><a class="dropdown-item" href="#">New project...</a></li>
+                            <li><a class="dropdown-item" href="#">Settings</a></li>
+                            <li><a class="dropdown-item" href="#">Profile</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Sign out</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="box bg-light small-box-middle-container py-5" style="width:1000px;text-align: center; margin-top: 12rem; border-collapse: separate; border-radius: 15px;">
+                <div class="row">
+                    <div class="col-2">
+                        <h3 style="text-align: left;">Từ ngày:</h3>
+                    </div>
+                    <div class="col-2">
+                        <input type="date" name="bday">
+                    </div>
+                    <div class="col-2">
+                        <h3>Đến ngày:</h3>
+                    </div>
+                    <div class="col-4">
+                        <input type="date" value="kday">
+                        <input type="submit" value="Xác nhận">
+                    </div>
+                </div>
+                <br>
+                <div id="order-list">
+                    
+                </div>
+                <div class="small-middle-container " style="text-align: center;">
+                    <div class="row">
+                        <div class="col-1">
+                            <h5></h5>
+                        </div>
+                        <div class="col-3">
+                            <h5></h5>
+                        </div>
+                        <div class="col-2">
+                            <h5></h5>
+                        </div>
+                        <div class="col-3">
+                            <h5></h5>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="total-price" style="width:650px">
+                    <h5 style="margin-left: 630px;width: 100px;margin: right 0px;">Total:</h5>
+                </div> -->
+            </div>
+    <script src="./js/donhang.js"></script>
+</body>
+</html>
