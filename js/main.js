@@ -6,23 +6,23 @@ if (countOrder==null)
 
 let order=[{
     productCost: "50000",
-    productInCart: 3,
-    productName: "Viettel 50.000",
-    productType: "Viettel"
+    productnumber: 3,
+    productName: "Khoa học viễn tưởng 50.000",
+    productType: "Khoa học viễn tưởng"
     }
     ,{
     productCost: "10000",
-    productInCart: 6,
+    productnumber: 6,
     productName: "Vietnamobile 10.000",
     productType: "Vietnamobile"}
     ,{
     productCost: "200000",
-    productInCart: 4,
+    productnumber: 4,
     productName: "Vinaphone 200.000",
     productType: "Vinaphone"}
     ,{
     productCost: "50000",
-    productInCart: 3,
+    productnumber: 3,
     productName: "Mobifone 50.000",
     productType: "Mobifone"}
 ]
@@ -80,35 +80,35 @@ else
     localStorage.setItem('numberCart1',0)
 document.querySelector('.cart span').innerText = numberCart;
 product=[
-    {name: 'Viettel 10.000', type: 'Viettel', realValue: '10000', cost: '10000', inCart: 0},
-    {name: 'Viettel 20.000', type: 'Viettel', realValue: '20000', cost: '18000', inCart: 0},
-    {name: 'Viettel 50.000', type: 'Viettel', realValue: '50000', cost: '50000', inCart: 0},
-    {name: 'Viettel 100.000', type: 'Viettel', realValue: '100000', cost: '97500', inCart: 0},
-    {name: 'Viettel 200.000', type: 'Viettel', realValue: '200000', cost: '197500', inCart: 0},
-    {name: 'Viettel 500.000', type: 'Viettel', realValue: '500000', cost: '497500', inCart: 0},
-    {name: 'Vietnamobile 10.000', type: 'Vietnamobile', realValue: '10000', cost: '10000', inCart: 0},
-    {name: 'Vietnamobile 20.000', type: 'Vietnamobile', realValue: '20000', cost: '20000', inCart: 0},
-    {name: 'Vietnamobile 50.000', type: 'Vietnamobile', realValue: '50000', cost: '47300', inCart: 0},
-    {name: 'Vietnamobile 100.000', type: 'Vietnamobile', realValue: '100000', cost: '97500', inCart: 0},
-    {name: 'Vietnamobile 200.000', type: 'Vietnamobile', realValue: '200000', cost: '197500', inCart: 0},
-    {name: 'Vietnamobile 300.000', type: 'Vietnamobile', realValue: '300000', cost: '300000', inCart: 0},    
-    {name: 'Vietnamobile 500.000', type: 'Vietnamobile', realValue: '500000', cost: '497500', inCart: 0},
-    {name: 'Vinaphone 10.000', type: 'Vinaphone', realValue: '10000', cost: '10000', inCart: 0},
-    {name: 'Vinaphone 20.000', type: 'Vinaphone', realValue: '20000', cost: '18000', inCart: 0},
-    {name: 'Vinaphone 30.000', type: 'Vinaphone', realValue: '30000', cost: '30000', inCart: 0},
-    {name: 'Vinaphone 50.000', type: 'Vinaphone', realValue: '50000', cost: '50000', inCart: 0},
-    {name: 'Vinaphone 100.000', type: 'Vinaphone', realValue: '100000', cost: '100000', inCart: 0},
-    {name: 'Vinaphone 200.000', type: 'Vinaphone', realValue: '200000', cost: '194800', inCart: 0},
-    {name: 'Vinaphone 300.000', type: 'Vinaphone', realValue: '300000', cost: '284800', inCart: 0},
-    {name: 'Vinaphone 500.000', type: 'Vinaphone', realValue: '500000', cost: '454800', inCart: 0},
-    {name: 'Mobifone 10.000', type: 'Mobifone', realValue: '10000', cost: '10000', inCart: 0},
-    {name: 'Mobifone 20.000', type: 'Mobifone', realValue: '20000', cost: '20000', inCart: 0},
-    {name: 'Mobifone 30.000', type: 'Mobifone', realValue: '30000', cost: '30000', inCart: 0},
-    {name: 'Mobifone 50.000', type: 'Mobifone', realValue: '50000', cost: '49500', inCart: 0},
-    {name: 'Mobifone 100.000', type: 'Mobifone', realValue: '100000', cost: '97500', inCart: 0},
-    {name: 'Mobifone 200.000', type: 'Mobifone', realValue: '200000', cost: '192500', inCart: 0},
-    {name: 'Mobifone 300.000', type: 'Mobifone', realValue: '300000', cost: '287500', inCart: 0},
-    {name: 'Mobifone 500.000', type: 'Mobifone', realValue: '500000', cost: '487000', inCart: 0},
+    {name: 'Cây Cam Ngọt Của Tôi', type: 'Khoa học viễn tưởng', realValue: '10000', cost: '10000', number: 0, NXB:'' , author:'José Mauro de Vasconcelos'},
+    {name: 'Cây Cam Ngọt Của Tôi', type: 'Khoa học viễn tưởng', realValue: '10000', cost: '10000', number: 0, NXB:'' , author:'José Mauro de Vasconcelos'},
+    {name: 'Cây Cam Ngọt Của Tôi', type: 'Khoa học viễn tưởng', realValue: '10000', cost: '10000', number: 0, NXB:'' , author:'José Mauro de Vasconcelos'},
+    {name: 'Cây Cam Ngọt Của Tôi', type: 'Khoa học viễn tưởng', realValue: '10000', cost: '10000', number: 0, NXB:'' , author:'José Mauro de Vasconcelos'},
+    {name: 'Cây Cam Ngọt Của Tôi', type: 'Khoa học viễn tưởng', realValue: '10000', cost: '10000', number: 0, NXB:'' , author:'José Mauro de Vasconcelos'},
+    {name: 'Cây Cam Ngọt Của Tôi', type: 'Khoa học viễn tưởng', realValue: '10000', cost: '10000', number: 0, NXB:'' , author:'José Mauro de Vasconcelos'},
+    {name: 'Cây Cam Ngọt Của Tôi', type: 'Khoa học viễn tưởng', realValue: '10000', cost: '10000', number: 0, NXB:'' , author:'José Mauro de Vasconcelos'},
+    {name: 'Vietnamobile 20.000', type: 'Vietnamobile', realValue: '20000', cost: '20000', number: 0, NXB:'' , author:''},
+    {name: 'Vietnamobile 50.000', type: 'Vietnamobile', realValue: '50000', cost: '47300', number: 0, NXB:'' , author:''},
+    {name: 'Vietnamobile 100.000', type: 'Vietnamobile', realValue: '100000', cost: '97500', number: 0, NXB:'' , author:''},
+    {name: 'Vietnamobile 200.000', type: 'Vietnamobile', realValue: '200000', cost: '197500', number: 0, NXB:'' , author:''},
+    {name: 'Vietnamobile 300.000', type: 'Vietnamobile', realValue: '300000', cost: '300000', number: 0, NXB:'' , author:''},    
+    {name: 'Vietnamobile 500.000', type: 'Vietnamobile', realValue: '500000', cost: '497500', number: 0, NXB:'' , author:''},
+    {name: 'Vinaphone 10.000', type: 'Vinaphone', realValue: '10000', cost: '10000', number: 0, NXB:'' , author:''},
+    {name: 'Vinaphone 20.000', type: 'Vinaphone', realValue: '20000', cost: '18000', number: 0, NXB:'' , author:''},
+    {name: 'Vinaphone 30.000', type: 'Vinaphone', realValue: '30000', cost: '30000', number: 0, NXB:'' , author:''},
+    {name: 'Vinaphone 50.000', type: 'Vinaphone', realValue: '50000', cost: '50000', number: 0, NXB:'' , author:''},
+    {name: 'Vinaphone 100.000', type: 'Vinaphone', realValue: '100000', cost: '100000', number: 0, NXB:'' , author:''},
+    {name: 'Vinaphone 200.000', type: 'Vinaphone', realValue: '200000', cost: '194800', number: 0, NXB:'' , author:''},
+    {name: 'Vinaphone 300.000', type: 'Vinaphone', realValue: '300000', cost: '284800', number: 0, NXB:'' , author:''},
+    {name: 'Vinaphone 500.000', type: 'Vinaphone', realValue: '500000', cost: '454800', number: 0, NXB:'' , author:''},
+    {name: 'Mobifone 10.000', type: 'Mobifone', realValue: '10000', cost: '10000', number: 0, NXB:'' , author:''},
+    {name: 'Mobifone 20.000', type: 'Mobifone', realValue: '20000', cost: '20000', number: 0, NXB:'' , author:''},
+    {name: 'Mobifone 30.000', type: 'Mobifone', realValue: '30000', cost: '30000', number: 0, NXB:'' , author:''},
+    {name: 'Mobifone 50.000', type: 'Mobifone', realValue: '50000', cost: '49500', number: 0, NXB:'' , author:''},
+    {name: 'Mobifone 100.000', type: 'Mobifone', realValue: '100000', cost: '97500', number: 0, NXB:'' , author:''},
+    {name: 'Mobifone 200.000', type: 'Mobifone', realValue: '200000', cost: '192500', number: 0, NXB:'' , author:''},
+    {name: 'Mobifone 300.000', type: 'Mobifone', realValue: '300000', cost: '287500', number: 0, NXB:'' , author:''},
+    {name: 'Mobifone 500.000', type: 'Mobifone', realValue: '500000', cost: '487000', number: 0, NXB:'' , author:''},
 ]
 if (localStorage.getItem('product')==null){
     json=JSON.stringify(product)
@@ -121,9 +121,7 @@ else{
 let imgLink=[]
 let temp
 for (let i=0;i<product.length;i++){
-    temp=product[i].name.replace(' ','')
-    temp=temp.replace('.000','k')
-    imgLink.push('./asset/image/'+temp+'.png')
+    imgLink.push('./asset/image/1.png')
 }
 if (localStorage.getItem('imgLink')==null){
     json=JSON.stringify(imgLink)
@@ -154,7 +152,7 @@ for (let i=0;i<a;i++){
                     <p class="card-text" style="text-decoration-line: line-through"> ${parseInt(product[i+(pageNumber-1)*6].realValue).toLocaleString()}đ</p>
                     <h5 class="card-title text-danger reduce-cost">${parseInt(product[i+(pageNumber-1)*6].cost).toLocaleString()}đ</h5>
                     <a class="add-cart cart 1 btn btn-primary text-light"><i class="ri-shopping-cart-2-fill"></i></a>
-                    <a class="btn btn-danger text-light pay-button" style="float:right" data-bs-toggle="modal" data-bs-target="#myModal-pay">Mua ngay</a>
+                    <a class="btn btn-danger text-light pay-button" style="float:right" data-bs-toggle="modal" data-bs-target="#myModal-pay"><i class="ri-shopping-bag-fill"></i>Mua ngay</a>
                 </div>
             </div>
             </div>      
@@ -164,14 +162,14 @@ for (let i=0;i<a;i++){
         cardList.innerHTML += `
                 <div class="col-lg-3 m-5">
                 <div class="card">
-                    <button class="m-0 p-0 btn btn-primary btn-modal" style="border: none;background: none; min-width: px" type="button" data-bs-toggle="modal" data-bs-target="#myModal">
+                    <button class="m-0 p-0 btn btn-primary btn-modal" style="border: none;background: none;" type="button" data-bs-toggle="modal" data-bs-target="#myModal">
                         <img class="card-img-top" src="${imgLink[i+(pageNumber-1)*6]}" alt="Card image">
                     </button>
                     <div class="card-body" >
                         <h4 class="card-title" style="min-height:70px;">${product[i+(pageNumber-1)*6].name}</h4>
                         <h5 class="card-title text-danger reduce-cost">${parseInt(product[i+(pageNumber-1)*6].cost).toLocaleString()}đ</h5>
                         <a class="add-cart cart 1 btn btn-primary text-light"><i class="ri-shopping-cart-2-fill"></i></a>
-                        <a class="btn btn-danger text-light pay-button" style="float:right" data-bs-toggle="modal" data-bs-target="#myModal-pay">Mua ngay</a>
+                        <a class="btn btn-danger text-light pay-button" style="float:right" data-bs-toggle="modal" data-bs-target="#myModal-pay"><i class="ri-shopping-bag-fill"></i>Mua ngay</a>
                     </div>
                 </div>
                 </div>      
@@ -232,7 +230,7 @@ for (let i=0;i<btnModals.length;i++){
     document.getElementById("modal-text").innerHTML='Mệnh giá: '+parseInt(product[i+(pageNumber-1)*6].realValue).toLocaleString()+'đ<br/>'+'Loại thẻ: '+product[i+(pageNumber-1)*6].type+'<br/>'+'Giá: '+parseInt(product[i+(pageNumber-1)*6].cost).toLocaleString()+"đ";  
     var btnCart=document.querySelector('.btn-cart')
     btnCart.addEventListener('click',function(){
-        product[i+(pageNumber-1)*6].inCart++;
+        product[i+(pageNumber-1)*6].number++;
         var json=JSON.stringify(product)
         localStorage.setItem('product',json)
         if (document.querySelector('.cart span').textContent=='0') 
@@ -256,7 +254,7 @@ if (status1==1){
 // Thêm sản phẩm vào giỏ hàng
 for (let i = 0; i < btnModals.length; i++) {
     carts[i].addEventListener('click',()=>{
-        product[i+(pageNumber-1)*6].inCart++;
+        product[i+(pageNumber-1)*6].number++;
         var json=JSON.stringify(product)
         localStorage.setItem('product',json)
         if (document.querySelector('.cart span').textContent=='0') 
@@ -296,7 +294,7 @@ for (let i=0;i < payBtn.length;i++){
                         productName:product[i+(pageNumber-1)*6].name,
                         productType:product[i+(pageNumber-1)*6].type,
                         productCost:product[i+(pageNumber-1)*6].cost,
-                        productInCart:1,
+                        productnumber:1,
                     })
                     json=JSON.stringify(order)
                     localStorage.setItem('order'+orderID,json)
@@ -315,7 +313,7 @@ headerLogout.addEventListener('click',function(){
     localStorage.setItem('status',0)
     localStorage.setItem('numberCart1',0)
     for (let i=0;i<btnModals.length;i++){
-        product[i].inCart=0
+        product[i].number=0
     }
     var json=JSON.stringify(product)
     localStorage.setItem('product',json)
@@ -369,16 +367,16 @@ btnSearch.addEventListener('click',function(){
 //             alert('Vui lòng nhập sốiện thoại')
 //         else{
 //             for (let i=0;i<cart.length;i++)
-//                 if (cart[i].inCart!=0){
+//                 if (cart[i].number!=0){
 //                     order.push({
 //                         id:i,
 //                         productName:cart[i].name,
 //                         productType:cart[i].type,
 //                         productRealValue:cart[i].replace,
 //                         productCost:cart[i].cost,
-//                         productInCart:cart[i].inCart,
+//                         productnumber:cart[i].number,
 //                     })
-//                     cart[i].inCart=0
+//                     cart[i].number=0
 //                 }
 //             json=JSON.stringify(cart)
 //             localStorage.setItem('product',json)
