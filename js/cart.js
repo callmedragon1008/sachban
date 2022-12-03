@@ -9,14 +9,10 @@ if (status1==1){
     headerLogin.classList.add('disappear')
     headerUser.classList.remove('disappear')
     headerLogout.classList.remove('disappear')
-    headerUser.innerHTML=`<a class="nav-link me-lg-3" href=""><i class="ti-user"></i>${name}</a>`
+    headerUser.innerHTML=`<a class="nav-link me-lg-3" href=""><i class="ti-user"></i>${localStorage.getItem('username1')}</a>`
 }
-headerLogout.addEventListener('click',function(){
-    localStorage.setItem('status',0)
-    headerLogin.classList.remove('disappear')
-    headerUser.classList.add('disappear')
-    headerLogout.classList.add('disappear')
-})
+
+
 
 let numberCart=localStorage.getItem('numberCart')
 document.querySelector('.cart span').innerText = numberCart;
@@ -150,7 +146,18 @@ for (let i=0;i<btnPlus.length;i++)
 
 
 
-
+headerLogout.addEventListener('click',function(){
+    localStorage.setItem('status',0)
+    for (let i=0;i<product.length;i++){
+        inCart[i]=0
+    }
+    localStorage.setItem('numberCart',0)
+    json=JSON.stringify(inCart)
+    localStorage.setItem('inCart',json)
+    headerLogin.classList.remove('disappear')
+    headerUser.classList.add('disappear')
+    headerLogout.classList.add('disappear')
+})
 
 // Thanh toán
 

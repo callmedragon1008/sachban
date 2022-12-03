@@ -6,6 +6,7 @@ let customerList=[
     address:'27 Hùng Vương,P.12,Đồng Hới',
     phonenumber:'043489234',
     password: 1223435,
+    status:'-1',
     },
     {
         username: 'Dat',
@@ -13,6 +14,7 @@ let customerList=[
         address:'27 Hùng Vương,P.12,Đồng Hới',
         phonenumber:'043489234',
         password: 1223435,
+        status:'1',
     },
     {
         username: 'Dat',
@@ -20,6 +22,7 @@ let customerList=[
         address:'27 Hùng Vương,P.12,Đồng Hới',
         phonenumber:'043489234',
         password: 1223435,
+        status:'1',
     },
     {
         username: 'Dat',
@@ -27,6 +30,7 @@ let customerList=[
         address:'27 Hùng Vương,P.12,Đồng Hới',
         phonenumber:'043489234',
         password: 1223435,
+        status:'1',
     },
     {
         username: 'Dat',
@@ -34,6 +38,7 @@ let customerList=[
         address:'27 Hùng Vương,P.12,Đồng Hới',
         phonenumber:'043489234',
         password: 1223435,
+        status:'1',
     },
     {
         username: 'Dat',
@@ -41,6 +46,7 @@ let customerList=[
         address:'27 Hùng Vương,P.12,Đồng Hới',
         phonenumber:'043489234',
         password: 1223435,
+        status:'1',
     },
     {
         username: 'Dat',
@@ -48,15 +54,28 @@ let customerList=[
         address:'27 Hùng Vương,P.12,Đồng Hới',
         phonenumber:'043489234',
         password: 1223435,
+        status:'1',
     },
 ]
-json=JSON.stringify(customerList)
-localStorage.setItem('customerList',json)
+if (localStorage.getItem('customerList')==null){
+    json=JSON.stringify(customerList)
+    localStorage.setItem('customerList',json)
+}
+else{
+    json=localStorage.getItem('customerList')
+    customerList=JSON.parse(json)
+}
+
 // Danh sách sản phẩm
 let numberCart=0
 let product=[]
 
 document.querySelector('.cart span').innerText = numberCart;
+numberCart=localStorage.getItem('numberCart')
+if (numberCart!=null)
+    document.querySelector('.cart span').textContent=numberCart
+else
+    numberCart=0
 product=[
     {name: 'Cây Cam Ngọt Của Tôi',code:'', type: 'Tiểu thuyết', realValue: '108000', cost: '97000', number: 10, NXB:'Nhà Xuất Bản Hội Nhà Văn' , author:'José Mauro de Vasconcelos'},
     {name: 'Tàn Ngày Để Lại',code:'', type: 'Tiểu thuyết', realValue: '160000', cost: '148000', number: 10, NXB:'Nhà Xuất Bản Văn Học' , author:'Kazuo Ishiguro'},
@@ -157,7 +176,7 @@ for (let i=0;i<a;i++){
                         <h5 class="text-danger reduce-cost" style="margin-bottom:0px;margin-top:10px;">${(parseInt(product[i+(pageNumber-1)*9].cost)).toLocaleString()}đ</h5>
                     </div>
                     <div class="col-7">
-                        <a class="btn btn-primary text-light pay-button" style="float:right;"><i class="ri-shopping-cart-2-fill"></i>Thêm vào giỏ</a>
+                        <a class="btn btn-primary text-light pay-button add-cart" style="float:right;"><i class="ri-shopping-cart-2-fill"></i>Thêm vào giỏ</a>
                     </div>
                 </div>
             </div>
@@ -324,7 +343,7 @@ if (status1==1){
     headerLogin.classList.add('disappear')
     headerUser.classList.remove('disappear')
     headerLogout.classList.remove('disappear')
-    headerUser.innerHTML=`<a class="nav-link me-lg-3" href=""><i class="ti-user"></i>${name1}</a>`
+    headerUser.innerHTML=`<a class="nav-link me-lg-3" href=""><i class="ti-user"></i>${localStorage.getItem('username1')}</a>`
 }
 
 // Thêm sản phẩm vào giỏ hàng
@@ -338,12 +357,10 @@ else {
     json=localStorage.getItem('inCart')
     inCart=JSON.parse(json)
 }
-numberCart=localStorage.getItem('numberCart')
-if (numberCart!=null)
-    document.querySelector('.cart span').textContent=numberCart
+
 let carts = document.querySelectorAll('.add-cart')
 for (let i = 0; i < carts.length; i++) {
-    carts[i].addEventListener('click',()=>{
+    carts[i].addEventListener('click',function(){
         if ((product[i+(pageNumber-1)*9].number)>0){
             inCart[i+(pageNumber-1)*9]++;
             json=JSON.stringify(inCart)
@@ -355,7 +372,7 @@ for (let i = 0; i < carts.length; i++) {
             if (document.querySelector('.cart span').textContent=='0') 
                 numberCart=1
             else{
-            numberCart++;
+                numberCart++;
         }
             localStorage.setItem('numberCart',numberCart)
             document.querySelector('.cart span').innerText = numberCart;
@@ -371,7 +388,9 @@ headerLogout.addEventListener('click',function(){
     for (let i=0;i<product.length;i++){
         inCart[i]=0
     }
-    localStorage.setItem('inCart',inCart)
+    localStorage.setItem('numberCart',0)
+    json=JSON.stringify(inCart)
+    localStorage.setItem('inCart',json)
     headerLogin.classList.remove('disappear')
     headerUser.classList.add('disappear')
     headerLogout.classList.add('disappear')

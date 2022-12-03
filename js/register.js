@@ -3,7 +3,6 @@ let email = document.getElementById("form3Example3");
 let password = document.getElementById("form3Example4");
 let repassword = document.getElementById("form3Example4d");
 let btnLogin = document.querySelector(".js-login-button");
-let countCustomer=JSON.parse(localStorage.getItem('countCustomer'))
 btnLogin.addEventListener("click", (e) => {
   e.preventDefault();
   let user = {
@@ -21,13 +20,13 @@ btnLogin.addEventListener("click", (e) => {
         alert("Mật khẩu không khớp");
       else{
         localStorage.setItem(username.value, json);
-        localStorage.setItem('countCustomer', countCustomer+1);
         let user1 = {
           username: username.value,
           email:email.value,
           address:'',
           phonenumber:'',
           password: password.value,
+          status:1,
         };
         json=localStorage.getItem('customerList')
         let customerList=JSON.parse(json)
