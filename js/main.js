@@ -120,8 +120,8 @@ else{
     product=JSON.parse(json)
 }
 let describe=[
-'',
-'',
+'Cây Cam Ngọt Của Tôi là một câu chuyện về nổi đau và tình yêu thương, đưa chúng ta vào một hành trình khám phá để tự trả lời câu hỏi: Cuộc đời có đáng sống không? Zezé có đủ sự hoạt bát và tinh nghịch mà một đứa trẻ năm tuổi có thể có, cậu bé cũng có đủ sự thông minh và những suy nghĩ rối ren phức tạp mà ít đứa trẻ năm tuổi nào có thể có.',
+'Stevens là một quản gia người Anh với tất cả mọi hàm nghĩa của từ này: tận tụy, chỉn chu, trung thành, và trên hết, luôn luôn có một ý thức mãnh liệt về phẩm giá nghề nghiệp. Mong muốn cải thiện chất lượng phục vụ tại dinh thự và chấm dứt những sa sút hiện tại, Stevens dấn thân vào một cuộc hành trình đi qua Miền Tây nước Anh. Mỗi chặng trên cuộc hành trình mở ra một cánh cửa nối về quá khứ, và dần dà hành trình ấy làm hé lộ những mất mát và nuối tiếc theo sau những ảo tưởng của một đời người',
 '',
 '',
 '',
@@ -177,7 +177,7 @@ for (let i=0;i<a;i++){
                 <p class="card-text" style="text-decoration-line: line-through">${(parseInt(product[i+(pageNumber-1)*9].realValue)).toLocaleString()}đ</p>
                 <div class="row">
                     <div class="col-5">
-                        <h5 class="text-danger reduce-cost" style="margin-bottom:0px;">${(parseInt(product[i+(pageNumber-1)*9].cost)).toLocaleString()}đ</h5>
+                        <h5 class="text-danger reduce-cost" style="margin-bottom:0px;margin-top:10px;">${(parseInt(product[i+(pageNumber-1)*9].cost)).toLocaleString()}đ</h5>
                     </div>
                     <div class="col-7">
                         <a class="btn btn-primary text-light pay-button" style="float:right;"><i class="ri-shopping-cart-2-fill"></i>Thêm vào giỏ</a>
@@ -256,7 +256,47 @@ let status1=localStorage.getItem('status')
 
 for (let i=0;i<btnModals.length;i++){
   btnModals[i].addEventListener('click',function(){
-    let temp=0;
+    document.getElementById('modal-content').innerHTML=`
+    <div class="col-8">
+                    <h3 id="book-name"></h3>
+                    <h6 style="color: blue;" id="book-info">Nhà xuất bản : Trẻ | Tác giả : Nguyễn Tiến Đạt | Mã sản phẩm : </h6>
+                    <h6 id="book-status"></h6>
+                    <hr>
+                    
+                    <h5>Mô tả:</h5>
+                    <span id="book-content"> </span>
+                    <hr>
+                    <div class="row">
+                        <div class="col-2 text-danger">
+                            <h5 id="cost"></h5>
+                        </div>
+                        <div class="col-2">
+                            <h6 id="realValue" style="text-decoration-line: line-through"></h6>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-3">
+                            <b style="font-size: 30px;">Số lượng:</b>
+                        </div>
+                        <div class="col-3" style="margin-top: 10px;" class="in-cart">
+                                <button class="navbar-toggler minus" type="button" style="margin-right:20px;" ><i class="ti-minus"></i></button>
+                                <span style="font-size:19px;" id="number-cart">1</span>
+                                <button class="navbar-toggler plus" type="button" style="margin-left:20px;"><i class="ti-plus"></i></button>
+                        </div>
+                        <div class="col-2">
+                        </div>
+                        <div class="col-4" style="padding-left: 55px;">
+                            <a class="btn-cart cart 1 btn btn-primary text-light"><i class="ri-shopping-cart-2-fill"> Thêm vào giỏ hàng</i></a>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col-4">
+                    <img src="./asset/image/1.png" alt="" srcset="" style="float: left;width:20rem;">
+                </div>
+    `
     var btnCart=document.querySelector('.btn-cart')
     var btnMinus=document.querySelector(".minus")
     var btnPlus=document.querySelector(".plus")
@@ -270,20 +310,19 @@ for (let i=0;i<btnModals.length;i++){
     document.getElementById('book-content').innerText=describe[i+(pageNumber-1)*9]
     if (product[i+(pageNumber-1)*9].realValue!=product[i+(pageNumber-1)*9].cost)
         document.getElementById('realValue').innerText=(parseInt(product[i+(pageNumber-1)*9].realValue)).toLocaleString()+'đ'
-    
+    else
+        document.getElementById('realValue').innerText=''
+
     document.getElementById('cost').innerText=(parseInt(product[i+(pageNumber-1)*9].cost)).toLocaleString()+'đ'
     cart.innerText=1
     btnMinus.addEventListener('click',function(){
-        temp=1
         if (parseInt(cart.innerText)>1)
-        cart.innerText=parseInt(cart.innerText)-1
+            cart.innerText=parseInt(cart.innerText)-1
         })
     btnPlus.addEventListener('click',function(){
-        temp=1
         cart.innerText=(parseInt(cart.innerText)+1)+''
         })
     btnCart.addEventListener('click',function(){
-        temp=1
         if (parseInt(cart.innerText)>product[i].number)
             alert('Hiện chỉ còn ' +product[i].number+' sản phẩm '+product[i].name)
         else{
@@ -295,9 +334,6 @@ for (let i=0;i<btnModals.length;i++){
             json=JSON.stringify(inCart)
             localStorage.setItem('inCart',json)
             }
-            document.querySelector(".btn-close").addEventListener('click',function(){
-                if (temp==1) window.location.href="index.html"
-            })
     })
     
 })
@@ -351,47 +387,6 @@ for (let i = 0; i < carts.length; i++) {
             alert('Đã hết hàng')
 })
 }
-
-// // Nút mua ngay
-
-// let telephone=document.getElementById('telephone-input')
-// let customer=[]
-// let payBtn=document.querySelectorAll('.pay-button')
-// let payModal=document.getElementById('myModal-pay')
-// for (let i=0;i < payBtn.length;i++){
-//     payModal.classList.remove('disappear')
-//     payBtn[i].addEventListener('click',function(){
-//         var confirmBtn=document.querySelector('.confirm-button')
-//         confirmBtn.addEventListener('click',function(){
-//             var orderID=localStorage.getItem('countOrder')
-//             if (orderID==null) orderID=1
-//             else orderID=JSON.parse(orderID)+1
-//             if (status1!=1)
-//                 alert('Vui lòng đăng nhập để thanh toán')
-//             else{
-//                 if (telephone.value==''||telephone.value.length<7||telephone.value.indexOf('0')!=0)
-//                     alert('Vui lòng nhập số điện thoại hợp lệ')
-//                 else{
-//                     json=JSON.stringify(orderID)
-//                     localStorage.setItem('countOrder',json)
-//                     order.push({
-//                         id:i+(pageNumber-1)*9,
-//                         productName:product[i+(pageNumber-1)*6].name,
-//                         productType:product[i+(pageNumber-1)*6].type,
-//                         productCost:product[i+(pageNumber-1)*6].cost,
-//                         productnumber:1,
-//                     })
-//                     json=JSON.stringify(order)
-//                     localStorage.setItem('order'+orderID,json)
-//                     localStorage.setItem('telephone'+orderID,telephone.value)
-//                     localStorage.setItem('customer'+orderID,name1)
-//                     alert('Đơn hàng đang được xử lý')
-//                     window.location.href="index.html"
-//                 }
-//             }
-//     })
-// })
-// }
 
 
 headerLogout.addEventListener('click',function(){
