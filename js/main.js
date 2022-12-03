@@ -147,7 +147,7 @@ for (let i=0;i<a;i++){
         <div class="col-lg-3 m-5">
         <div class="card">
             <button class="m-0 p-0 btn btn-primary btn-modal" style="border: none;background: none;" type="button" data-bs-toggle="modal" data-bs-target="#myModal">
-                <img class="card-img-top" src="./asset/image/1.png" alt="Card image">
+                <img class="card-img-top" src="./asset/image/backgoundimg.png" alt="Card image">
             </button>
             <div class="card-body" >
                 <h4 class="card-title" style="height:40px;margin-bottom:0px;">${product[i+(pageNumber-1)*9].name}</h4>
