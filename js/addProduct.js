@@ -47,20 +47,20 @@ btnCheck.addEventListener('click',function(){
         imgLink1=img.src
         if (inputParValue.value!=inputPrice.value){
             newProduct.innerHTML = `
-                <div class="col-lg-3 m-5">
-                <div class="card">
-                    <button class="m-0 p-0 btn btn-primary btn-modal" style="border: none;background: none;" type="button" data-bs-toggle="modal" data-bs-target="#myModal">
-                        <img class="card-img-top" src="${imgLink1}" alt="Card image">
-                    </button>
-                    <div class="card-body" >
-                        <h4 class="card-title">${inputName.value} <i class="ri-fire-fill text-danger" style="float:right" ></i></h4>
-                        <p class="card-text" style="text-decoration-line: line-through"> ${parseInt(inputParValue.value).toLocaleString()}đ</p>
-                        <h5 class="card-title text-danger reduce-cost">${parseInt(inputPrice.value).toLocaleString()}đ</h5>
-                        <a class="add-cart cart 1 btn btn-primary text-light"><i class="ri-shopping-cart-2-fill"></i></a>
-                        <a class="btn btn-danger text-light pay-button" style="float:right" data-bs-toggle="modal" data-bs-target="#myModal-pay"><i class="ri-shopping-bag-fill"></i>Mua ngay</a>
-                    </div>
+            <div style="margin-left: 45rem;min-width: 350px;" >
+            <div class="card">
+                <button class="m-0 p-0 btn btn-primary btn-modal" style="border: none;background: none;" type="button" data-bs-toggle="modal" data-bs-target="#myModal">
+                    <img class="card-img-top" src="./asset/image/1.png" alt="Card image" style="height: 100%;">
+                </button>
+                <div class="card-body" >
+                    <h4 class="card-title">Cây Cam Ngọt Của Tôi<i class="ri-fire-fill text-danger" style="float:right" ></i></h4>
+                    <p class="card-text" style="text-decoration-line: line-through"> 10.000đ</p>
+                    <h5 class="card-title text-danger reduce-cost">10.000đ</h5>
+                    <a class="add-cart cart 1 btn btn-primary text-light"><i class="ri-shopping-cart-2-fill"></i></a>
+                    <a class="btn btn-danger text-light pay-button" style="float:right" data-bs-toggle="modal" data-bs-target="#myModal-pay"><i class="ri-shopping-bag-fill"></i>Mua ngay</a>
                 </div>
-                </div>      
+            </div>
+        </div>      
             `
         }
         else

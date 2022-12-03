@@ -57,67 +57,165 @@
                         </ul>
                     </div>
                 </div>
+                </div>
+                <div class="col-auto col-md-3 col-xl-3 px-sm-6 px-2 min-vh-100">
+                    <div class="d-flex flex-column align-items-center align-items-sm-center px-3 pt-2 position-fixed min-vh-100">            
+                    <form style="width: 40rem;">
+                        <div class="row mb-3">
+                            <label for="inputImg" class="col-sm-3 col-form-label">Chọn ảnh</label>
+                            <div class="col-sm-9">
+                                <input type="file" class="form-control" id="img-upload" name="img" accept="image/png">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="inputName" class="col-sm-3 col-form-label">Tên sách:</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="inputName">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="inputParValue" class="col-sm-3 col-form-label">Giá bìa:</label>
+                            <div class="col-sm-9">
+                                <input type="number" class="form-control" id="inputParValue">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="inputPrice" class="col-sm-3 col-form-label">Giá bán:</label>
+                            <div class="col-sm-9">
+                                <input type="number" class="form-control" id="inputPrice">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="inputPrice" class="col-sm-3 col-form-label">Số lượng:</label>
+                            <div class="col-sm-9">
+                                <input type="number" class="form-control" id="inputNumber">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="inputPrice" class="col-sm-3 col-form-label">Mô tả</label>
+                            <div class="col-sm-9">
+                                <textarea type="text" class="form-control" id="inputContent" style="height: 90px;"></textarea>
+                            </div>
+                        </div>
+                        <fieldset class="row mb-3">
+                        <legend class="col-form-label col-sm-3 pt-0">Thể loại:</legend>
+                        <div class="col-sm-9">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="Viettel">
+                                <label class="form-check-label" for="gridRadios1">
+                                    Viettel
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="Mobiphone">
+                                <label class="form-check-label" for="gridRadios2">
+                                    Mobiphone
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="Vinaphone">
+                                <label class="form-check-label" for="gridRadios3">
+                                    Vinaphone
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios4" value="Vietnamobile">
+                                <label class="form-check-label" for="gridRadios4">
+                                    Vietnamobile
+                                </label>
+                            </div>
+                        <button type="button" class="btn btn-danger" id="btn-check">Kiểm tra</button>
+                        <button type="button" class="btn btn-primary" id="btn-confirm">Xác nhận</button>
+                    </form>
+                </div>
             </div>
-            <div class="col py-3">
-                <form>
-                    <div class="row mb-3">
-                        <label for="inputImg" class="col-sm-2 col-form-label">Chọn ảnh</label>
-                        <div class="col-sm-10">
-                            <input type="file" class="form-control" id="img-upload" name="img" accept="image/png">
+            <div class="container-fluid" id="product">
+                <div style="margin-left: 45rem;min-width: 350px;" >
+                    <div class="card">
+                        <button class="m-0 p-0 btn btn-primary btn-modal" style="border: none;background: none;" type="button" data-bs-toggle="modal" data-bs-target="#myModal">
+                            <img class="card-img-top" src="./asset/image/1.png" alt="Card image" style="height: 100%;">
+                        </button>
+                        <div class="card-body" >
+                            <h4 class="card-title">Cây Cam Ngọt Của Tôi<i class="ri-fire-fill text-danger" style="float:right" ></i></h4>
+                            <div class="row">
+                                <div class=""></div>
+                                <p class="card-text-1" style="text-decoration-line: line-through"> 10.000đ</p>
+                                <h5 class="card-title text-danger reduce-cost">10.000đ</h5>
+                            </div>
                         </div>
                     </div>
-                    <div class="row mb-3">
-                        <label for="inputName" class="col-sm-2 col-form-label">Tên</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="inputName">
-                        </div>
-                    </div>
-                    <div class="row mb-3">
-                        <label for="inputParValue" class="col-sm-2 col-form-label">Mệnh giá</label>
-                        <div class="col-sm-10">
-                            <input type="number" class="form-control" id="inputParValue">
-                        </div>
-                    </div>
-                    <div class="row mb-3">
-                        <label for="inputPrice" class="col-sm-2 col-form-label">Giá tiền</label>
-                        <div class="col-sm-10">
-                            <input type="number" class="form-control" id="inputPrice">
-                        </div>
-                    </div>
-                    <fieldset class="row mb-3">
-                    <legend class="col-form-label col-sm-2 pt-0">Loại thẻ</legend>
-                    <div class="col-sm-10">
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="Viettel">
-                            <label class="form-check-label" for="gridRadios1">
-                                Viettel
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="Mobiphone">
-                            <label class="form-check-label" for="gridRadios2">
-                                Mobiphone
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="Vinaphone">
-                            <label class="form-check-label" for="gridRadios3">
-                                Vinaphone
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios4" value="Vietnamobile">
-                            <label class="form-check-label" for="gridRadios4">
-                                Vietnamobile
-                            </label>
-                        </div>
-                    <button type="button" class="btn btn-danger" id="btn-check">Kiểm tra</button>
-                    <button type="button" class="btn btn-primary" id="btn-confirm">Xác nhận</button>
-                </form>
+                </div>
             </div>
-            <div class="container-fluid" id="product" style="margin-left: 12%;">
+        </div> 
+    </div>
+    <div class="modal" id="myModal">
+        <div class="modal-dialog modal-xl" >
+            <div class="modal-content">
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <div class="container">
+                        <div class="row">
+                    
+                            <!-- <div class="col-1">
 
+                            </div> -->
+
+                            <div class="col-8">
+                                <h3>Cây Cam Ngọt Của Tôi</h3>
+                                <h6 style="color: blue;">Nhà xuất bản : Trẻ | Tác giả : Nguyễn Tiến Đạt | Mã sản phẩm : </h6>
+                                <h6>Tình trạng : Còn hàng</h6>
+                                
+                                <hr>
+                                
+                                <h5>Mô tả:</h5>
+                                <span>NGÀNH QUẢNG CÁO QUÁ MAY MẮN. Lúc nào cũng lung linh trong mắt các bạn trẻ yêu sáng tạo. Ai cũng muốn ra trường sẽ hiến bộ não đầy ắp ý tưởng cho một công ty quảng cáo chất chơi nào đó. 
+
+                                    Nhưng dẫu có được chuẩn bị kĩ càng, giáo trình quốc tế 5 sao đi nữa thì nàng (Quảng) Cáo lúc nào cũng kiêu kì. Ở trường thì học hành, vào công ty thì vừa hành vừa học. Để có ý tưởng và câu chữ xài được, các “mầm non sáng tạo” phải va chạm liên tục và tự mình vỡ lấy những bài học, càng nhanh càng tốt, không được để deadline qua mặt. 
+                                    
+                                    Và người trực tiếp chăn dắt “bọn trẻ” đi qua những ngày ban sơ ấy là “sinh vật” mang tên “mentor/ supervisor/ senior creative – “Sếp” trực tiếp, nhân viên sáng tạo làm kha khá năm. </span>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-2">
+                                        <h5>170.000đ</h5>
+                                    </div>
+                                    <div class="col-2">
+                                        <h6 style="text-decoration-line: line-through">170.000đ</h6>
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="row">
+                                    <div class="col-3">
+                                        <b style="font-size: 30px;">Số lượng:</b>
+                                    </div>
+                                    <div class="col-2" style="margin-top: 10px;">
+                                            <button class="navbar-toggler minus" type="button" style="margin-right:20px;" ><i class="ti-minus"></i></button>
+                                            <span style="font-size:19px;">1</span>
+                                            <button class="navbar-toggler plus" type="button" style="margin-left:20px;"><i class="ti-plus"></i></button>
+                                    </div>
+                                    <div class="col-4" style="padding-left: 55px;">
+                                        <a class="add-cart cart 1 btn btn-primary text-light"><i class="ri-shopping-cart-2-fill"> Thêm vào giỏ hàng</i></a>
+                                    </div>
+                                    <div class="col-3">
+                                        <a class="btn btn-danger text-light pay-button" style="float:right" data-bs-toggle="modal" data-bs-target="#myModal-pay">Mua ngay</a>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            <div class="col-4">
+                                <img src="./asset/image/1.png" alt="" srcset="" style="float: left;width:20rem;">
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- Modal footer -->
             </div>
-        <script src="./js/addProduct.js"></script>
+        </div>
+    </div>
+    <script src="./js/addProduct.js"></script>
 </body>
 </html>

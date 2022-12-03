@@ -22,9 +22,23 @@ btnLogin.addEventListener("click", (e) => {
       else{
         localStorage.setItem(username.value, json);
         localStorage.setItem('countCustomer', countCustomer+1);
+        let user1 = {
+          username: username.value,
+          email:email.value,
+          address:'',
+          phonenumber:'',
+          password: password.value,
+        };
+        json=localStorage.getItem('customerList')
+        let customerList=JSON.parse(json)
+        customerList.push(user1)
+        json=JSON.stringify(customerList)
+        localStorage.setItem('customerList',json)
+        console.log(json)
         alert("Đăng ký thành công");
         window.location.href="login.html";
       }
       }
   }
 });
+

@@ -20,7 +20,6 @@
 //                         `=--=-'         ＜（＾－＾）＞ -->
 const adminContent=document.getElementById('admin-content')
 const countOrder=localStorage.getItem('countOrder')
-const countCustomer=localStorage.getItem('countCustomer')
 let json=localStorage.getItem('product')
 const product=JSON.parse(json)
 for (let i=0;i<product.length;i++){
@@ -148,7 +147,7 @@ adminContent.innerHTML=`
             <br>
             <br>
             <br>
-            <h4>Số khách hàng: ${countCustomer}</h4>
+            <h4>Số khách hàng: ${(JSON.parse(localStorage.getItem('customerList'))).length}</h4>
             <h4>Số sản phẩm đã bán: ${sumSell}</h4>
             <h4>Tổng số đơn hàng: ${countOrder}</h4>
         </div>

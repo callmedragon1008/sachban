@@ -7,7 +7,19 @@ body {
     background-size: cover;
 }
 
-
+.menu-item {
+    padding: 10px 15px;
+    display: block;
+    font-size: 14px;
+    padding: 5px;
+    border: 1px black;
+    box-sizing: border-box;
+}
+.menu-item :hover{
+   
+    background-color: pink;
+    color: black;
+}
 
 a {
     text-decoration: none !important;
