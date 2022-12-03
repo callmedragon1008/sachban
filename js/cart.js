@@ -2,17 +2,14 @@
 let headerLogin=document.querySelector('.header-login')
 let headerUser=document.querySelector('.header-user-name')
 let headerLogout=document.querySelector('.header-log-out')
-let name1=localStorage.getItem('username1')
+let name=localStorage.getItem('username')
 let status1=localStorage.getItem('status')
 status1=parseInt(status1)
-// btnModals:đếm số sản phẩm
-let btnModals=document.querySelectorAll(".btn-modal")
 if (status1==1){
-    // localStorage.setItem('numberCart',0)
     headerLogin.classList.add('disappear')
     headerUser.classList.remove('disappear')
     headerLogout.classList.remove('disappear')
-    headerUser.innerHTML=`<a class="nav-link me-lg-3" href=""><i class="ti-user"></i>${name1}</a>`
+    headerUser.innerHTML=`<a class="nav-link me-lg-3" href=""><i class="ti-user"></i>${name}</a>`
 }
 headerLogout.addEventListener('click',function(){
     localStorage.setItem('status',0)
@@ -20,7 +17,6 @@ headerLogout.addEventListener('click',function(){
     headerUser.classList.add('disappear')
     headerLogout.classList.add('disappear')
 })
-
 
 let numberCart=localStorage.getItem('numberCart')
 document.querySelector('.cart span').innerText = numberCart;
@@ -107,17 +103,20 @@ for (let i=0;i<btnMinus.length;i++)
             cart1[i].innerHTML=cart[count[i]]-1;
             cart[count[i]]--;
             numberCart--;
+            product[count[i]].number--;
+            json=JSON.stringify(product)
+            localStorage.setItem('product',json)
             document.querySelector('.cart span').innerText = numberCart;
-            localStorage.setItem("numberCart1",numberCart)
-            temp=JSON.stringify(cart)
-            localStorage.setItem("product",temp)
-            temp=parseInt(cart[count[i]].cost)
+            localStorage.setItem("numberCart",numberCart)
+            json=JSON.stringify(cart)
+            localStorage.setItem("inCart",json)
+            temp=parseInt(product[count[i]].cost)
             sum=sum-temp
             sum1=sum.toLocaleString();
             productTotal.innerHTML=`
             <span>${sum1}đ<span>
         `
-            temp=parseInt(cart[count[i]].cost)*parseInt(cart[count[i]])
+            temp=parseInt(product[count[i]].cost)*parseInt(cart[count[i]])
             temp=temp.toLocaleString();
             sumCart[i].innerText=temp
         }
@@ -131,17 +130,19 @@ for (let i=0;i<btnPlus.length;i++)
             cart[count[i]]++;
             numberCart++;
             document.querySelector('.cart span').innerText = numberCart;
-            localStorage.setItem("numberCart1",numberCart)
-            // product[count[i]]=cart[count[i]]
-            temp=JSON.stringify(cart)
-            localStorage.setItem("product",temp)
-            temp=parseInt(cart[count[i]].cost)
+            localStorage.setItem("numberCart",numberCart)
+            json=JSON.stringify(cart)
+            localStorage.setItem("inCart",json)
+            product[count[i]].number++;
+            json=JSON.stringify(product)
+            localStorage.setItem('product',json)
+            temp=parseInt(product[count[i]].cost)
             sum=sum+temp
             sum1=sum.toLocaleString();
             productTotal.innerHTML=`
             <span>${sum1}đ<span>
         `
-            temp=parseInt(cart[count[i]].cost)*parseInt(cart[count[i]])
+            temp=parseInt(product[count[i]].cost)*parseInt(cart[count[i]])
             temp=temp.toLocaleString();
             sumCart[i].innerText=temp
     })

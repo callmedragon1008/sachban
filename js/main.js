@@ -1,27 +1,4 @@
 let json
-let order=[{
-    productCost: "50000",
-    productnumber: 3,
-    productName: "Khoa học viễn tưởng 50.000",
-    productType: "Khoa học viễn tưởng"
-    }
-    ,{
-    productCost: "10000",
-    productnumber: 6,
-    productName: "Vietnamobile 10.000",
-    productType: "Vietnamobile"}
-    ,{
-    productCost: "200000",
-    productnumber: 4,
-    productName: "Vinaphone 200.000",
-    productType: "Vinaphone"}
-    ,{
-    productCost: "50000",
-    productnumber: 3,
-    productName: "Mobifone 50.000",
-    productType: "Mobifone"}
-]
-
 let customerList=[
     {
     username: 'Dat',
@@ -81,7 +58,7 @@ let product=[]
 
 document.querySelector('.cart span').innerText = numberCart;
 product=[
-    {name: 'Cây Cam Ngọt Của Tôi',code:'', type: 'Tiểu thuyết', realValue: '10000', cost: '10000', number: 5, NXB:'' , author:'José Mauro de Vasconcelos'},
+    {name: 'Cây Cam Ngọt Của Tôi',code:'', type: 'Tiểu thuyết', realValue: '10000', cost: '10000', number: 5, NXB:'Trẻ' , author:'José Mauro de Vasconcelos'},
     {name: 'Tàn Ngày Để Lại',code:'', type: 'Tiểu thuyết', realValue: '10000', cost: '10000', number: 5, NXB:'' , author:'José Mauro de Vasconcelos'},
     {name: 'Và Rồi Núi Vọng',code:'', type: 'Tiểu thuyết', realValue: '10000', cost: '10000', number: 0, NXB:'' , author:'José Mauro de Vasconcelos'},
     {name: 'Trái Tim Của Quỷ',code:'', type: 'Tiểu thuyết', realValue: '10000', cost: '10000', number: 0, NXB:'' , author:'José Mauro de Vasconcelos'},
