@@ -1,62 +1,4 @@
 let json
-let customerList=[
-    {
-    username: 'Dat',
-    email:'Dat',
-    address:'27 Hùng Vương,P.12,Đồng Hới',
-    phonenumber:'043489234',
-    password: 1223435,
-    status:'-1',
-    },
-    {
-        username: 'Dat',
-        email:'Dat@gmail.com',
-        address:'27 Hùng Vương,P.12,Đồng Hới',
-        phonenumber:'043489234',
-        password: 1223435,
-        status:'1',
-    },
-    {
-        username: 'Dat',
-        email:'Dat@gmail.com',
-        address:'27 Hùng Vương,P.12,Đồng Hới',
-        phonenumber:'043489234',
-        password: 1223435,
-        status:'1',
-    },
-    {
-        username: 'Dat',
-        email:'Dat@gmail.com',
-        address:'27 Hùng Vương,P.12,Đồng Hới',
-        phonenumber:'043489234',
-        password: 1223435,
-        status:'1',
-    },
-    {
-        username: 'Dat',
-        email:'Dat@gmail.com',
-        address:'27 Hùng Vương,P.12,Đồng Hới',
-        phonenumber:'043489234',
-        password: 1223435,
-        status:'1',
-    },
-    {
-        username: 'Dat',
-        email:'Dat@gmail.com',
-        address:'27 Hùng Vương,P.12,Đồng Hới',
-        phonenumber:'043489234',
-        password: 1223435,
-        status:'1',
-    },
-    {
-        username: 'Dat',
-        email:'Dat@gmail.com',
-        address:'27 Hùng Vương,P.12,Đồng Hới',
-        phonenumber:'043489234',
-        password: 1223435,
-        status:'1',
-    },
-]
 if (localStorage.getItem('customerList')==null){
     json=JSON.stringify(customerList)
     localStorage.setItem('customerList',json)
@@ -225,26 +167,26 @@ for (let i=0;i<btnModals.length;i++){
                     
                 </div>
                 <div class="col-4">
-                    <img src="${product[i+(pageNumber-1)*9].code}" alt="" srcset="" style="float: left;width:20rem;">
+                    <img src="${product[i+(pageNumber-1)*9+3].code}" alt="" srcset="" style="float: left;width:20rem;">
                 </div>
     `
     var btnCart=document.querySelector('.btn-cart')
     var btnMinus=document.querySelector(".minus")
     var btnPlus=document.querySelector(".plus")
     var cart=document.getElementById("number-cart")
-    document.getElementById("book-name").innerText=product[i+(pageNumber-1)*9].name
-    document.getElementById("book-info").innerText='Nhà xuất bản : '+ product[i+(pageNumber-1)*9].NXB+' | Tác giả : '+product[i+(pageNumber-1)*9].author+' | Thể loại : '+product[i+(pageNumber-1)*9].type
-    if (product[i+(pageNumber-1)*9].number>0)
+    document.getElementById("book-name").innerText=product[i+(pageNumber-1)*9+3].name
+    document.getElementById("book-info").innerText='Nhà xuất bản : '+ product[i+(pageNumber-1)*9+3].NXB+' | Tác giả : '+product[i+(pageNumber-1)*9+3].author+' | Thể loại : '+product[i+(pageNumber-1)*9+3].type
+    if (product[i+(pageNumber-1)*9+3].number>0)
         document.getElementById("book-status").innerText='Tình trạng : Còn hàng'
     else
         document.getElementById("book-status").innerText='Tình trạng : Hết hàng'
-    document.getElementById('book-content').innerText=describe[i+(pageNumber-1)*9]
-    if (product[i+(pageNumber-1)*9].realValue!=product[i+(pageNumber-1)*9].cost)
-        document.getElementById('realValue').innerText=(parseInt(product[i+(pageNumber-1)*9].realValue)).toLocaleString()+'đ'
+    document.getElementById('book-content').innerText=describe[i+(pageNumber-1)*9+3]
+    if (product[i+(pageNumber-1)*9+3].realValue!=product[i+(pageNumber-1)*9+3].cost)
+        document.getElementById('realValue').innerText=(parseInt(product[i+(pageNumber-1)*9+3].realValue)).toLocaleString()+'đ'
     else
         document.getElementById('realValue').innerText=''
 
-    document.getElementById('cost').innerText=(parseInt(product[i+(pageNumber-1)*9].cost)).toLocaleString()+'đ'
+    document.getElementById('cost').innerText=(parseInt(product[i+(pageNumber-1)*9+3].cost)).toLocaleString()+'đ'
     cart.innerText=1
     btnMinus.addEventListener('click',function(){
         if (parseInt(cart.innerText)>1)
@@ -257,8 +199,8 @@ for (let i=0;i<btnModals.length;i++){
         if (parseInt(cart.innerText)>product[i].number)
             alert('Hiện chỉ còn ' +product[i].number+' sản phẩm '+product[i].name)
         else{
-            inCart[i]+=parseInt(cart.innerText);
-            product[i].number=product[i].number-parseInt(cart.innerText)
+            inCart[i+(pageNumber-1)*9]+=parseInt(cart.innerText);
+            product[i+(pageNumber-1)*9].number=product[i+(pageNumber-1)*9].number-parseInt(cart.innerText)
             numberCart=parseInt(cart.innerText)+parseInt(document.querySelector('.cart span').innerText)
             localStorage.setItem('numberCart',numberCart)
             document.querySelector('.cart span').innerText = numberCart;
