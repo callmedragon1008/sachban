@@ -13,7 +13,7 @@ let customerList=[
         email:'Btran2@gmail.com',
         address:'27 Số 2,P.10,Đồng Hới',
         phonenumber:'0936721892',
-        password: 0192834,
+        password: 8594385,
         status:'-1',
     },
     {
