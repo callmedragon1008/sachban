@@ -19,80 +19,18 @@
 // ===========`-.`___`-.__\ \___  /__.-'_.'_.-'================
 //                         `=--=-'         ＜（＾－＾）＞ -->
 const adminContent=document.getElementById('admin-content')
-const countOrder=localStorage.getItem('countOrder')
 let json=localStorage.getItem('product')
 const product=JSON.parse(json)
-for (let i=0;i<product.length;i++){
-    product[i].inCart=0
-}
-let order=[]
+json=localStorage.getItem('order')
+const order=JSON.parse(json)
+
 let temp
 let sumSell=0
 let sell=[0,0,0,0]
-for (let i=1;i<=countOrder;i++){
-    order.push([{
-        id:3,
-        productCost: "50000",
-        productInCart: 9,
-        productName: "Viettel 100.000",
-        productType: "Viettel"
-        },{
-        id:4,
-        productCost: "100000",
-        productInCart: 12,
-        productName: "Viettel 200.000",
-        productType: "Viettel"
-        }
-        ,{
-        id:6,
-        productCost: "10000",
-        productInCart: 4,
-        productName: "Vietnamobile 10.000",
-        productType: "Vietnamobile"}
-        ,{
-        id:7,
-        productCost: "20000",
-        productInCart: 7,
-        productName: "Vietnamobile 20.000",
-        productType: "Vietnamobile"}
-        ,{
-        id:9,
-        productCost: "100000",
-        productInCart: 6,
-        productName: "Vietnamobile 100.000",
-        productType: "Vietnamobile"}
-        ,{
-        id:13,
-        productCost: "10000",
-        productInCart: 3,
-        productName: "Vinaphone 10.000",
-        productType: "Vinaphone"}
-        ,{
-        id:17,
-        productCost: "100000",
-        productInCart: 7,
-        productName: "Vinaphone 100.000",
-        productType: "Vinaphone"},
-        {
-            id:23,
-            productCost: "30000",
-            productInCart: 7,
-            productName: "Mobifone 30.000",
-            productType: "Mobifone"}
-    ]
-    )
-}
 for (let i=0;i<order.length;i++){
     for (let j=0;j<order[i].length;j++){
-        sumSell+=order[i][j].productInCart;
-        if (order[i][j].productType=='Viettel')
-            sell[0]+=order[i][j].productInCart
-        if (order[i][j].productType=='Mobifone')
-           sell[1]+=order[i][j].productInCart
-        if (order[i][j].productType=='Vinaphone')
-            sell[2]+=order[i][j].productInCart
-        if (order[i][j].productType=='Vietnamobile')
-            sell[3]+=order[i][j].productInCart
+        sumSell+=order[i].detail[j];
+        
     }
 }
 for (let i=0;i<order.length;i++){

@@ -2,7 +2,6 @@
 let headerLogin=document.querySelector('.header-login')
 let headerUser=document.querySelector('.header-user-name')
 let headerLogout=document.querySelector('.header-log-out')
-let name=localStorage.getItem('username')
 let status1=localStorage.getItem('status')
 status1=parseInt(status1)
 if (status1==1){
@@ -154,10 +153,10 @@ for (let i=0;i<btnPlus.length;i++)
 headerLogout.addEventListener('click',function(){
     localStorage.setItem('status',0)
     for (let i=0;i<product.length;i++){
-        inCart[i]=0
+        cart[i]=0
     }
     localStorage.setItem('numberCart',0)
-    json=JSON.stringify(inCart)
+    json=JSON.stringify(cart)
     localStorage.setItem('inCart',json)
     headerLogin.classList.remove('disappear')
     headerUser.classList.add('disappear')
@@ -175,6 +174,12 @@ payBtn.addEventListener('click',function(){
     else{
         modalContent.innerHTML=`
         <form>
+            <div class="row">
+                <label for="inputImg" class="col-sm-3 col-form-label">Tên khách hàng:</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="customer-name">
+                </div>
+            </div>
             <div class="row">
                 <label for="inputImg" class="col-sm-3 col-form-label">Địa chỉ giao hàng:</label>
                 <div class="col-sm-9">
@@ -212,11 +217,24 @@ payBtn.addEventListener('click',function(){
                 window.location.href="shopping-cart.html"
             }
             else{
+                
+                alert('Thanh toán thành công')
+                json=localStorage.getItem('order')
+                let order=JSON.parse(json)
+                order.push({
+                    status:0,
+                    phone:phoneNumber.value,
+                    address:address.value,
+                    detail:cart,
+                    customer:localStorage.getItem('username1'),
+                })
+                json=JSON.stringify(order)
+                localStorage.setItem('order',json)
                 for (let i=0;i<cart.length;i++)
                     cart[i]=0
                 json=JSON.stringify(cart)
                 localStorage.setItem('inCart',json)
-                alert('Thanh toán thành công')
+                localStorage.setItem('numberCart',0)
                 window.location.href="shopping-cart.html"
             }
         })
