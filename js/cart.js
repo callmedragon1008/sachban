@@ -101,7 +101,7 @@ for (let i=0;i<btnMinus.length;i++)
             cart1[i].innerHTML=cart[count[i]]-1;
             cart[count[i]]--;
             numberCart--;
-            product[count[i]].number--;
+            product[count[i]].number++;
             json=JSON.stringify(product)
             localStorage.setItem('product',json)
             document.querySelector('.cart span').innerText = numberCart;
@@ -124,7 +124,7 @@ for (let i=0;i<btnMinus.length;i++)
 for (let i=0;i<btnPlus.length;i++)
 {
     btnPlus[i].addEventListener('click',function(){
-        if (product[count[i]]>(cart[count[i]])){
+        if (product[count[i]].number>(cart[count[i]])){
             cart1[i].innerHTML=cart[count[i]]+1;
             cart[count[i]]++;
             numberCart++;
@@ -132,7 +132,7 @@ for (let i=0;i<btnPlus.length;i++)
             localStorage.setItem("numberCart",numberCart)
             json=JSON.stringify(cart)
             localStorage.setItem("inCart",json)
-            product[count[i]].number++;
+            product[count[i]].number--;
             json=JSON.stringify(product)
             localStorage.setItem('product',json)
             temp=parseInt(product[count[i]].cost)

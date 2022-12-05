@@ -1,12 +1,36 @@
 let json
 let customerList=[
     {
-    username: 'Dat',
-    email:'Dat',
-    address:'27 Hùng Vương,P.12,Đồng Hới',
-    phonenumber:'043489234',
-    password: 1223435,
-    status:'-1',
+        username: 'Dat123',
+        email:'Dat834@gmail.com',
+        address:'27 Lê Hồng Phong,P.12,Alsaska',
+        phonenumber:'043489234',
+        password: 1223435,
+        status:'-1',
+    },
+    {
+        username: 'Dat',
+        email:'Dat5893@gmail.com',
+        address:'27 Hùng Vương,P.12,Đồng Hới',
+        phonenumber:'043489234',
+        password: 12232345,
+        status:'-1',
+    },
+    {
+        username: 'Dat',
+        email:'Dat5935@gmail.com',
+        address:'27 Hùng Vương,P.12,Đồng Hới',
+        phonenumber:'043489434',
+        password: 1223964335,
+        status:'-1',
+    },
+    {
+        username: 'Dat',
+        email:'Dat@gmail.com',
+        address:'27 Hùng Vương,P.12,Đồng Hới',
+        phonenumber:'0434353234',
+        password: 1223435,
+        status:'-1',
     },
     {
         username: 'Dat',
@@ -14,7 +38,7 @@ let customerList=[
         address:'27 Hùng Vương,P.12,Đồng Hới',
         phonenumber:'043489234',
         password: 1223435,
-        status:'1',
+        status:'-1',
     },
     {
         username: 'Dat',
@@ -22,7 +46,7 @@ let customerList=[
         address:'27 Hùng Vương,P.12,Đồng Hới',
         phonenumber:'043489234',
         password: 1223435,
-        status:'1',
+        status:'-1',
     },
     {
         username: 'Dat',
@@ -30,31 +54,7 @@ let customerList=[
         address:'27 Hùng Vương,P.12,Đồng Hới',
         phonenumber:'043489234',
         password: 1223435,
-        status:'1',
-    },
-    {
-        username: 'Dat',
-        email:'Dat@gmail.com',
-        address:'27 Hùng Vương,P.12,Đồng Hới',
-        phonenumber:'043489234',
-        password: 1223435,
-        status:'1',
-    },
-    {
-        username: 'Dat',
-        email:'Dat@gmail.com',
-        address:'27 Hùng Vương,P.12,Đồng Hới',
-        phonenumber:'043489234',
-        password: 1223435,
-        status:'1',
-    },
-    {
-        username: 'Dat',
-        email:'Dat@gmail.com',
-        address:'27 Hùng Vương,P.12,Đồng Hới',
-        phonenumber:'043489234',
-        password: 1223435,
-        status:'1',
+        status:'-1',
     },
 ]
 if (localStorage.getItem('customerList')==null){
@@ -65,6 +65,71 @@ else{
     json=localStorage.getItem('customerList')
     customerList=JSON.parse(json)
 }
+
+let order=[
+    {
+        status:'0',
+        phone:'043489234',
+        address:'27 Lê Hồng Phong,P.1,Alsaska',
+        total:'584000',
+        customer:'Dat123',
+        detail:[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+
+    },
+    {
+        status:'0',
+        phone:'043489234',
+        address:'32 Hùng Vương,P.12,Đồng Hới',
+        total:'143000',
+        customer:'Dat',
+        detail:[0,0,0,0,0,0,0,0,3,1,0,0,0,0,0,0,0,0,0,0,0,0,0],
+
+    },
+    {
+        status:'0',
+        phone:'043349234',
+        address:'96 An Dương Vương,P.8,La Sơn',
+        total:'143000',
+        customer:'Dat123',
+        detail:[0,0,2,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+
+    },
+    {
+        status:'0',
+        phone:'043489234',
+        address:'27 Châu Sơn,P.12,Đồ Sơn',
+        total:'143000',
+        customer:'Dat945',
+        detail:[0,0,0,6,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0],
+
+    },
+    {
+        status:'0',
+        phone:'043489234',
+        address:'14 Lạc Long Quân,P.12,Đồng Hới',
+        total:'245000',
+        customer:'fuaisf231',
+        detail:[0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+    },
+    {
+        status:'0',
+        phone:'043489234',
+        address:'85 Đại,Xã Hồng,Việt Nam',
+        total:'365000',
+        customer:'Dat',
+        detail:[0,0,0,1,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+    },
+]
+
+if (localStorage.getItem('order')==null){
+    json=JSON.stringify(order)
+    localStorage.setItem('order',json)
+}
+else{
+    json=localStorage.getItem('order')
+    order=JSON.parse(json)
+}
+
 
 // Danh sách sản phẩm
 let numberCart=0
