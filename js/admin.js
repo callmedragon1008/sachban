@@ -72,9 +72,6 @@ for (let i=0;i<order[0].detail.length;i++){
 // }
 
 adminContent.innerHTML=`
-    <div class="row">
-        
-    </div>
     <br>
     <div class="row" id="row-1">
         <div class="col-4">
@@ -89,7 +86,7 @@ adminContent.innerHTML=`
     </div>
     <hr>
     <div class="row" id="row-2">
-    <div class="col-2">
+        <div class="col-2">
             <h3 style="text-align: left;">Từ ngày:</h3>
             <input type="date" name="bday" value="2022-06-05">
         </div>
@@ -112,8 +109,68 @@ adminContent.innerHTML=`
         </div>
     </div>
     <br>
+    
+    <br>
     <hr>
+    <div class="row" id="row-1">
+        <div class="col-4">
+            <h3>Danh sách sản phẩm đã bán:</h3>
+        </div>
+
+        <div class="col-3">
+        </div>
+        <div class="col-4">
+        </div>
+    </div>
+    <br>
+    <div class="row" id="row-1">
+        <div class="col-1">
+        </div>
+        <div class="col-1">
+            <h3>STT</h3>
+        </div>
+        <div class="col-4" style="padding-left:13px;">
+            <h3>Tên sản phẩm</h3>
+        </div>
+        <div class="col-2">
+            <h3>Thể loại</h3>
+        </div>
+        <div class="col-2">
+            <h3>Đã bán</h3>
+        </div>
+        <div class="col-2">
+            <h3>Còn lại</h3>
+        </div>
+    </div>
+    <br>
     `
+    temp=1
+    for (let i=0;i<sell1.length;i++){
+        if (sell1[i]>0){
+        adminContent.innerHTML+=
+        `<div class="row" id="row-1">
+            <div class="col-1">
+            </div>
+            <div class="col-1">
+                <h5 style="margin-left:13px;">${temp}</h5>
+            </div>
+            <div class="col-4">
+                <h5 style="margin-left:13px;">${product[i].name}</h5>
+            </div>
+            <div class="col-2">
+                <h5>${product[i].type}</h5>
+            </div>
+            <div class="col-2">
+                <h5 style="margin-left:20px;">${sell1[i]}</h5>
+            </div>
+            <div class="col-2">
+                <h5 style="margin-left:20px;">${product[i].number}</h5>
+            </div>
+        </div>
+        `
+        temp++
+        }
+    }
 let data = {
     labels: [
         'Tiểu thuyết',
@@ -136,4 +193,5 @@ let config = {
         type: 'pie',
         data: data,
         };
+
 var myPieChart = new Chart(document.getElementById("canvas-0").getContext("2d"),config);
