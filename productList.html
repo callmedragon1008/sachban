@@ -83,7 +83,7 @@
                 <br>
                 <div class="row">
                     <div class="col-1">
-                        <h4 style="text-align:center;">Mã sách</h4>
+                        <h4 style="text-align:center;">STT</h4>
                     </div>
                     <div class="col-2">
                         <h4>Tên sách</h4>
@@ -150,61 +150,99 @@
                     </div>
                     <!-- Modal body -->
                     <div class="modal-body">
-                        <form>
-                            <div class="row mb-3">
-                                <label for="inputImg" class="col-sm-2 col-form-label">Chọn ảnh</label>
-                                <div class="col-sm-10">
-                                    <input type="file" class="form-control" id="img-upload" name="img" accept="image/png">
+                        <div class="col-auto col-md-3 col-xl-3 px-sm-6 px-2"  style="margin-left: 15em;">
+                            
+                            <div class="d-flex flex-column align-items-center align-items-sm-center px-3 pt-2">            
+                                <form style="width: 40rem;">
+                                <div class="row mb-3">
+                                    <label for="inputImg" class="col-sm-3 col-form-label">Chọn ảnh</label>
+                                    <div class="col-sm-9">
+                                        <input type="file" class="form-control" id="img-upload" name="img" accept="image/png">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row mb-3">
-                                <label for="inputName" class="col-sm-2 col-form-label">Tên</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="inputName" value="">
+                                <div class="row mb-3">
+                                    <div class="col-sm-9" style="margin-left: 7em;" id="image">
+                                        <img src="./asset/image/1.png" alt="" srcset=""  style="width:20em;">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row mb-3">
-                                <label for="inputParValue" class="col-sm-2 col-form-label">Mệnh giá</label>
-                                <div class="col-sm-10">
-                                    <input type="number" class="form-control" id="inputParValue">
+                                <div class="row mb-3">
+                                    <label for="inputName" class="col-sm-3 col-form-label">Tên sách:</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="inputName">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row mb-3">
-                                <label for="inputPrice" class="col-sm-2 col-form-label">Giá tiền</label>
-                                <div class="col-sm-10">
-                                    <input type="number" class="form-control" id="inputPrice">
+                                <div class="row mb-3">
+                                    <label for="inputParValue" class="col-sm-3 col-form-label">Giá bìa:</label>
+                                    <div class="col-sm-9">
+                                        <input type="number" class="form-control" id="inputParValue">
+                                    </div>
                                 </div>
-                            </div>
-                            <fieldset class="row mb-3">
-                            <legend class="col-form-label col-sm-2 pt-0">Loại thẻ</legend>
-                            <div class="col-sm-10">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="Viettel">
-                                    <label class="form-check-label" for="gridRadios1">
-                                        Viettel
-                                    </label>
+                                <div class="row mb-3">
+                                    <label for="inputPrice" class="col-sm-3 col-form-label">Giá bán:</label>
+                                    <div class="col-sm-9">
+                                        <input type="number" class="form-control" id="inputPrice">
+                                    </div>
                                 </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="Mobiphone">
-                                    <label class="form-check-label" for="gridRadios2">
-                                        Mobiphone
-                                    </label>
+                                <div class="row mb-3">
+                                    <label for="inputNumber" class="col-sm-3 col-form-label">Số lượng:</label>
+                                    <div class="col-sm-9">
+                                        <input type="number" class="form-control" id="inputNumber">
+                                    </div>
                                 </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="Vinaphone">
-                                    <label class="form-check-label" for="gridRadios3">
-                                        Vinaphone
-                                    </label>
+                                <div class="row mb-3">
+                                    <label for="inputNXB" class="col-sm-3 col-form-label">NXB:</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="inputNXB">
+                                    </div>
                                 </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios4" value="Vietnamobile">
-                                    <label class="form-check-label" for="gridRadios4">
-                                        Vietnamobile
-                                    </label>
+                                <div class="row mb-3">
+                                    <label for="inputAuthor" class="col-sm-3 col-form-label">Tác giả:</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="inputAuthor">
+                                    </div>
                                 </div>
-                            <button type="button" class="btn btn-danger" id="btn-check">Kiểm tra</button>
-                            <button type="button" class="btn btn-primary" id="btn-confirm">Xác nhận</button>
-                        </form>
+                                <div class="row mb-3">
+                                    <label for="inputContent" class="col-sm-3 col-form-label">Mô tả</label>
+                                    <div class="col-sm-9">
+                                        <textarea class="form-control" id="inputContent" style="height: 90px;"></textarea>
+                                    </div>
+                                </div>
+                                <fieldset class="row mb-3">
+                                <legend class="col-form-label col-sm-3 pt-0">Thể loại:</legend>
+                                <div class="col-sm-9">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="Tiểu thuyết">
+                                        <label class="form-check-label" for="gridRadios1">
+                                            Tiểu thuyết
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="Tâm lý">
+                                        <label class="form-check-label" for="gridRadios2">
+                                            Tâm lý
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="Kinh dị - Giả tưởng">
+                                        <label class="form-check-label" for="gridRadios3">
+                                            Kinh dị - Giả tưởng
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios4" value="Tản văn - Tạp văn">
+                                        <label class="form-check-label" for="gridRadios4">
+                                            Tản văn - Tạp văn
+                                        </label>
+                                    </div>
+                                <button type="button" class="btn btn-primary" id="btn-confirm">Xác nhận</button>
+                                
+                            </form>
+                            
+                        </div>
+                        
+                    </div>
+                </div> 
+            </div>
                         </div>
                     </div>
                     </div>

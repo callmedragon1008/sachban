@@ -30,11 +30,11 @@
                             <form class="d-flex me-lg-3">
                                 <input class="form-control me-2" id="search-input" type="text" placeholder="Tìm kiếm" size="5px;">
                                 <select class="form-select form-select-sm" id="select-bottom" style="width: 200px;margin-right: 14px;" aria-label=".form-select-sm example">
-                                    <option value="0" selected="selected">Danh mục</option>
-                                    <option value="1">Viettel</option>
-                                    <option value="2">Vinaphone</option>
-                                    <option value="3">Mobifone</option>
-                                    <option value="4">Vietnamobile</option>
+                                    <option value="0" selected="selected">Thể loại</option>
+                                    <option value="1">Tiểu thuyết</option>
+                                    <option value="2">Tâm lý</option>
+                                    <option value="3">Kinh dị- Giả tưởng</option>
+                                    <option value="4">Tản văn - Tạp văn</option>
                                 </select>
                                 <p style="min-width:90px;margin-bottom: 0px;margin-top: 9px;">Khoảng giá:</p>
                                 <!-- <select class="form-select form-select-sm" :style="width 120px;margin-right: 14px;" aria-label=".form-select-sm example">
@@ -61,18 +61,12 @@
                         <!-- <li class="nav-item header-account"><a class="nav-link me-lg-3" href="./Register.html"><i class="ri-edit-2-line"></i> Đăng Ký</a></li> -->
                         <li class="nav-item header-login"><a class="nav-link me-lg-3" href="./login.html"><i class="ri-login-box-line"></i> Đăng Nhập/Đăng Ký</a></li>
                     </ul>
-                    <!-- <button class="btn btn-primary rounded-pill px-3 mb-2 mb-lg-0" data-bs-toggle="modal" data-bs-target="#feedbackModal">
-                        <span class="d-flex align-items-center">
-                            <i class="ri-chat-3-fill me-2"></i>
-                            <span class="small">Gửi phản hồi</span>
-                        </span>
-                    </button> -->
                 </div>
             </div>
         </nav>
     </div>
 
-    <div id="content" class="mt-5 pt-3">
+     <div id="content" class="mt-5 pt-3">
         <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
               <div class="carousel-item active">
@@ -84,44 +78,13 @@
             </div>
           </div>
         </header>
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-light min-vh-100" style="margin-left: 10rem ;margin-top: 9rem;" >
-                    <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-black  min-vh-100">
-                        <h3>Danh mục sản phẩm</h3>
-                        <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
-                            <li class="nav-item">
-                                <a href="./donhang.html" class="nav-link px-0 align-middle menu-item">
-                                    <h5>Sách Văn học</h5>
-                                </a>
-                            </li>
-                            <li class="nav-item menu-item">
-                                <a href="./addProduct.html" class="nav-link px-0 align-middle">
-                                    <h5>Sách Văn học</h5>
-                                </a>
-                            </li>
-                            <li class="nav-item menu-item">
-                                <a href="./productList.html" class="nav-link px-0 align-middle"><h5>Sách Văn học</h5> </a>
-                            </li>
-                            <li class="nav-item menu-item">
-                                <a href="./customer.html" class="nav-link px-0 align-middle">
-                                   <h5>Sách Thiếu Nhi</h5>
-                                 </a>
-                            </li>
-                        </ul>
-                        <hr>
-                    </div>
-                </div>
-                <div class="col py-3">
+       
+                <div class="col py-3" style="margin-left: 10em;margin-right: 10em;">
                     <div class="row d-flex justify-content-center" id="card-list">
                         <h2 class="text-center mt-3 pt-3" id="list-item-1">Danh sách sản phẩm</h2>  
                     </div>
                 </div>
                 
-            </div>
-        </div>
-    </div>
-
         <div class="container mt-3 d-flex justify-content-center">
             <ul class="pagination paging">
                 
@@ -132,7 +95,7 @@
                 <div class="modal-content">
                     <!-- Modal Header -->
                     <div class="modal-header">
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" onclick="window.location.href"></button>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                     </div>
                     <!-- Modal body -->
                     <div class="modal-body">

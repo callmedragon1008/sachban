@@ -41,12 +41,6 @@
                         <!-- <li class="nav-item header-account"><a class="nav-link me-lg-3" href="./Register.html"><i class="ri-edit-2-line"></i> Đăng Ký</a></li> -->
                         <li class="nav-item header-login"><a class="nav-link me-lg-3" href="./login.html"><i class="ri-login-box-line"></i> Đăng Nhập/Đăng Ký</a></li>
                     </ul>
-                    <button class="btn btn-primary rounded-pill px-3 mb-2 mb-lg-0" data-bs-toggle="modal" data-bs-target="#feedbackModal">
-                        <span class="d-flex align-items-center">
-                            <i class="ri-chat-3-fill me-2"></i>
-                            <span class="small">Gửi phản hồi</span>
-                        </span>
-                    </button>
                 </div>
             </div>
         </nav>
@@ -105,7 +99,7 @@
                     <h5></h5>
                 </div>
                 <div class="col-3 d-flex justify-content-end">
-                    <button class="btn btn-primary rounded-pill mb-2 mb-lg-0" data-bs-toggle="modal" data-bs-target="#myModal-pay">
+                    <button class="btn btn-primary rounded-pill mb-2 mb-lg-0 btn-pay" data-bs-toggle="modal" data-bs-target="#myModal-pay">
                         <span class="d-flex align-items-center">
                             <i class="ri-money-dollar-box-fill"></i>
                             <span>Thanh toán</span>
@@ -162,9 +156,8 @@
     </footer>
 
     <div class="modal" id="myModal-pay">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-l">
             <div class="modal-content">
-    
                 <!-- Modal Header -->
                 <div class="modal-header">
                     <h4 class="modal-title">Thanh toán</h4>
@@ -172,19 +165,8 @@
                 </div>
         
                 <!-- Modal body -->
-                <div class="modal-body">
-                    <input type="number" name="" id="telephone-input" placeholder="Nhập số điện thoại">
-                    <br>
-                    <span id="modal-text">
-                        Hình thức thanh toán:<br>
-                         -Thanh toán trực tuyến qua các chuyển khoản<br>
-                            +Agribank:Stk:4585784755,Tên tài khoản:fjsfhdsf
-                            +Vietcombank:STK:4782748237,Tên tài khoản:yuweyre
-                            +MBbank:STK:4782748237,Tên tài khoản:uiafuia<br>
-                         -Nội dung chuyển khoản:tên tài khoản_số điện thoại
-                        <br>
-                        Giao dịch sẽ được hoàn tất trong 10 phút sau khi chuyển khoản
-                    </span>
+                <div class="modal-body" id="modal-pay">
+                    
                 </div>
                 <!-- Modal footer -->
                 <div class="modal-footer">

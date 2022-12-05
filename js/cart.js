@@ -15,6 +15,8 @@ if (status1==1){
 
 
 let numberCart=localStorage.getItem('numberCart')
+if (numberCart==null)
+numberCart=0 
 document.querySelector('.cart span').innerText = numberCart;
 
 // Giỏ hàng
@@ -122,6 +124,7 @@ for (let i=0;i<btnMinus.length;i++)
 for (let i=0;i<btnPlus.length;i++)
 {
     btnPlus[i].addEventListener('click',function(){
+        if (product[count[i]]>(cart[count[i]])){
             cart1[i].innerHTML=cart[count[i]]+1;
             cart[count[i]]++;
             numberCart++;
@@ -141,10 +144,12 @@ for (let i=0;i<btnPlus.length;i++)
             temp=parseInt(product[count[i]].cost)*parseInt(cart[count[i]])
             temp=temp.toLocaleString();
             sumCart[i].innerText=temp
+        }
+        else{
+            alert('Chỉ còn '+cart[count[i]]+' sản phẩm')
+        }
     })
 }
-
-
 
 headerLogout.addEventListener('click',function(){
     localStorage.setItem('status',0)
@@ -161,47 +166,62 @@ headerLogout.addEventListener('click',function(){
 
 // Thanh toán
 
+let payBtn=document.querySelector('.btn-pay')
+let modalContent=document.getElementById('modal-pay')
 let confirmBtn=document.querySelector('.confirm-button')
-let telephone=document.getElementById('telephone-input')
-let order=[]
-let customer=[]
-let orderID=localStorage.getItem('countOrder')
-if (orderID==null) orderID=1
-else orderID++
-confirmBtn.addEventListener('click',function(){
+payBtn.addEventListener('click',function(){
     if (status1!=1)
-        alert('Vui lòng đăng nhập để thanh toán')
+        modalContent.innerHTML=`<h3>Vui lòng đăng nhập để thanh toán</h3>`
     else{
-        if (telephone.value==''||telephone.value.length<7||telephone.value.indexOf('0')!=0)
-            alert('Vui lòng nhập số điện thoại hợp lệ')
-        else{
-            for (let i=0;i<cart.length;i++){
-                localStorage.setItem('countOrder',orderID)
-                if (cart[i]!=0){
-                    order.push({
-                        id:i,
-                        productName:cart[i].name,
-                        productType:cart[i].type,
-                        productRealValue:cart[i].replace,
-                        productCost:cart[i].cost,
-                        productInCart:cart[i],
-                    })
-                    cart[i]=0
-                }
+        modalContent.innerHTML=`
+        <form>
+            <div class="row">
+                <label for="inputImg" class="col-sm-3 col-form-label">Địa chỉ giao hàng:</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="address">
+                </div>
+            </div>
+            <div class="row">
+                <label for="inputImg" class="col-sm-3 col-form-label">Số điện thoại:</label>
+                <div class="col-sm-9">
+                    <input type="number" class="form-control" id="phone-number">
+                </div>
+            </div>
+            <div class="form-check">
+                <h3 for="inputImg" class="col-form-label">Phương thức thanh toán:</h3>
+                <input checked="true" class="form-check-input" type="radio" id="gridRadios1" value="Tiểu thuyết">
+                <label class="form-check-label" for="gridRadios1">
+                    Thanh toán khi nhận hàng
+                </label>
+            </div>
+            <div class="form-check">
+                <h3 for="inputImg" class="col-form-label">Phương thức vận chuyển:</h3>
+                <input checked="true" class="form-check-input" type="radio" id="gridRadios1" value="Tiểu thuyết">
+                <label class="form-check-label" for="gridRadios1">
+                    Vận chuyển nhanh miễn phí
+                </label>
+            </div>
+        </form>
+        
+        `
+        let address=document.getElementById('address')
+        let phoneNumber=document.getElementById('phone-number')
+        confirmBtn.addEventListener('click',function(){
+            if (address.value==''||phoneNumber.value==''){
+                alert('Vui lòng nhập đầy đủ thông tin')
+                window.location.href="shopping-cart.html"
             }
-            json=JSON.stringify(cart)
-            localStorage.setItem('product',json)
-            localStorage.setItem('numberCart1',0)
-            json=JSON.stringify(order)
-            localStorage.setItem('order'+orderID,json)
-            localStorage.setItem('telephone'+orderID,telephone.value)
-            localStorage.setItem('customer'+orderID,name1)
-            alert('Đơn hàng đang được xử lý')
-            window.location.href="shopping-cart.html"
-        }
+            else{
+                for (let i=0;i<cart.length;i++)
+                    cart[i]=0
+                json=JSON.stringify(cart)
+                localStorage.setItem('inCart',json)
+                alert('Thanh toán thành công')
+                window.location.href="shopping-cart.html"
+            }
+        })
     }
 })
-
 
 let headerLogo=document.querySelector('.header-logo')
 headerLogo.addEventListener('click',function(){
