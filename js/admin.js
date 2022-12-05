@@ -38,6 +38,8 @@ for (let i=0;i<order[0].detail.length;i++){
     for (let j=0;j<order.length;j++)
         temp+=order[j].detail[i]
     sell1.push(temp)
+    if (sell1[indexMax]<temp)
+        indexMax=sell1.length-1
     temp=0
     if (product[i].type=='Tiểu thuyết'){
         for (let j=0;j<order.length;j++){
@@ -71,15 +73,7 @@ for (let i=0;i<order[0].detail.length;i++){
 
 adminContent.innerHTML=`
     <div class="row">
-        <div class="col-2">
-            <h3 style="text-align: left;">Từ ngày:</h3>
-            <input type="date" name="bday" value="2022-06-05">
-        </div>
-        <div class="col-2">
-            <h3>Đến ngày:</h3>
-            <input type="date" name="kday" value="2022-12-05">
-            <input type="submit" value="Xác nhận">
-        </div>
+        
     </div>
     <br>
     <div class="row" id="row-1">
@@ -91,11 +85,19 @@ adminContent.innerHTML=`
         </div>
         
         <div class="col-4">
-            <h3>Loại sản phẩm bán chạy : ${bestSeller}</h3>
         </div>
     </div>
     <hr>
     <div class="row" id="row-2">
+    <div class="col-2">
+            <h3 style="text-align: left;">Từ ngày:</h3>
+            <input type="date" name="bday" value="2022-06-05">
+        </div>
+        <div class="col-2">
+            <h3>Đến ngày:</h3>
+            <input type="date" name="kday" value="2022-12-05">
+            <input type="submit" value="Xác nhận">
+        </div>
         <div class="col-4">
             <canvas id="canvas-0"></canvas>
         </div>
@@ -105,136 +107,33 @@ adminContent.innerHTML=`
             <br>
             <h4>Số khách hàng: ${(JSON.parse(localStorage.getItem('customerList'))).length}</h4>
             <h4>Số sản phẩm đã bán: ${sumSell}</h4>
-            <h4>Tổng số đơn hàng: ${countOrder}</h4>
-        </div>`
-//         <div class="col-4">
-//             <canvas id="canvas-1"></canvas>
-//         </div>
-//     </div>
-//     <br>
-//     <br>
-//     <br>
-//     <div class="row" id="row-3">
-//     </div>
-//     <hr>
-//     <div class="row" id="row-4">
-//         <div class="col-4">
-//             <canvas id="canvas-2"></canvas>
-//         </div>
-//         <div class="col-4">
-//             <canvas id="canvas-3"></canvas>
-//         </div>
-//         <div class="col-4">
-//             <canvas id="canvas-4"></canvas>
-//         </div>
-//     </div>
-// `
-// let data = {
-//     labels: [
-//         'Viettel',
-//         'Mobifone',
-//         'Vinaphone',
-//         'Vietnamobile',
-//     ],
-//     datasets: [{
-//         data: [sell[0], sell[1], sell[2],sell[3]],
-//         backgroundColor: [
-//         'rgb(255, 99, 132)',
-//         'rgb(54, 162, 235)',
-//         'blue',
-//         'rgb(255, 205, 86)',
-//         ],
-//         hoverOffset: 4,
-//     }]
-//     };
-// let config = {
-//         type: 'pie',
-//         data: data,
-//         };
-// var myPieChart = new Chart(document.getElementById("canvas-0").getContext("2d"),config);
-// let labels=[]
-// let sellProduct=[]
-// let backgroundColor=[]
-// let temp1=255
-// let temp2=0
-// let temp3=0
-// for (let i=0;i<product.length;i++)
-// {
-//     if (product[i].type==bestSeller){
-//         labels.push(product[i].name)
-//         sellProduct.push(product[i].inCart)
-//         backgroundColor.push('rgb('+temp1+', '+ temp2+', '+temp3+')')
-//     }
-//     temp1-=20
-//     temp2+=40
-//     temp3+=80
-// }
-// data = {
-//     labels:labels,
-//     datasets:[{
-//         data:sellProduct,
-//         backgroundColor:backgroundColor,
-//         hoverOffset: 6,
-//     }]
-//     // datasets:dataset,
-// }
-// config = {
-//     type: 'pie',
-//     data: data,
-//     };
-// myPieChart = new Chart(document.getElementById("canvas-1").getContext("2d"),config);
-// let count=2
-// for (let j=0;j<4;j++){
-//     if (j==indexMax) continue
-//     if (j==0) temp='Viettel'
-//     if (j==1) temp='Mobifone'
-//     if (j==2) temp='Vinaphone'
-//     if (j==3) temp='Vietnamobile'
-//     document.getElementById('row-3').innerHTML+=`
-//     <div class="col-4">
-//         <h3>Loại sản phẩm : ${temp}</h3>
-//     </div>
-//     `
-//     labels=[]
-//     sellProduct=[]
-//     backgroundColor=[]
-//     temp1=255
-//     temp2=0
-//     temp3=0
-//     for (let i=0;i<product.length;i++)
-//     {
-//         if (product[i].type==temp){
-//             labels.push(product[i].name)
-//             sellProduct.push(product[i].inCart)
-//             backgroundColor.push('rgb('+temp1+', '+ temp2+', '+temp3+')')
-//             temp1-=20
-//             temp2+=40
-//             temp3+=80
-//         } 
-//     }
-//     data = {
-//         labels:labels,
-//         datasets:[{
-//             data:sellProduct,
-//             backgroundColor:backgroundColor,
-//             hoverOffset: 6,
-//         }]
-//     }
-//     config = {
-//         type: 'pie',
-//         data: data,
-//     };
-    
-//     if (count==2){
-//         var PieChart2 = new Chart(document.getElementById('canvas-2').getContext("2d"),config);
-//     }
-//     if (count==3){
-//         var PieChart3 = new Chart(document.getElementById('canvas-3').getContext("2d"),config);
-//     }
-//     if (count==4){
-//         var PieChart4 = new Chart(document.getElementById('canvas-4').getContext("2d"),config);
-//     }
-//     console.log(count)
-//     count++;
-// }
-// console.log(config)
+            <h4>Tổng số đơn hàng: ${order.length}</h4>
+            <h4>Sản phẩm bán chạy nhất : ${product[indexMax].name}</h4>
+        </div>
+    </div>
+    <br>
+    <hr>
+    `
+let data = {
+    labels: [
+        'Tiểu thuyết',
+        'Tâm lí',
+        'Kinh dị-Giả tưởng',
+        'Tản văn-Tạp văn',
+    ],
+    datasets: [{
+        data: [sell[0], sell[1], sell[2],sell[3]],
+        backgroundColor: [
+        'rgb(255, 99, 132)',
+        'rgb(54, 162, 235)',
+        'blue',
+        'rgb(255, 205, 86)',
+        ],
+        hoverOffset: 4,
+    }]
+    };
+let config = {
+        type: 'pie',
+        data: data,
+        };
+var myPieChart = new Chart(document.getElementById("canvas-0").getContext("2d"),config);
