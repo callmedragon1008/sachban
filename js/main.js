@@ -71,7 +71,6 @@ let order=[
         status:'0',
         phone:'043489234',
         address:'27 Lê Hồng Phong,P.1,Alsaska',
-        total:'584000',
         customer:'Dat123',
         detail:[0,0,2,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
 
@@ -80,7 +79,6 @@ let order=[
         status:'0',
         phone:'043489234',
         address:'32 Hùng Vương,P.12,Đồng Hới',
-        total:'143000',
         customer:'Dat',
         detail:[0,0,0,0,0,0,0,0,3,1,0,0,0,0,0,0,0,0,0,0,0,0,0],
 
@@ -89,7 +87,6 @@ let order=[
         status:'0',
         phone:'043349234',
         address:'96 An Dương Vương,P.8,La Sơn',
-        total:'143000',
         customer:'Dat123',
         detail:[0,0,2,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
 
@@ -98,7 +95,6 @@ let order=[
         status:'0',
         phone:'043489234',
         address:'27 Châu Sơn,P.12,Đồ Sơn',
-        total:'143000',
         customer:'Dat945',
         detail:[0,0,0,6,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0],
 
@@ -107,7 +103,6 @@ let order=[
         status:'0',
         phone:'043489234',
         address:'14 Lạc Long Quân,P.12,Đồng Hới',
-        total:'245000',
         customer:'fuaisf231',
         detail:[0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
     },
@@ -115,7 +110,6 @@ let order=[
         status:'0',
         phone:'043489234',
         address:'85 Đại,Xã Hồng,Việt Nam',
-        total:'365000',
         customer:'Dat',
         detail:[0,0,0,1,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
     },
