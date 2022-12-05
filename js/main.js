@@ -72,7 +72,7 @@ let order=[
         phone:'0394827938',
         address:'101, đường Số 1, p.Số 2, quận 3, TP.Hồ Chí Minh',
         customer:'Bảo',
-        detail:[0,0,2,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        detail:[0,0,2,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4],
 
     },
     {
@@ -80,7 +80,7 @@ let order=[
         phone:'0394839483',
         address:'202, đường Số 2, p.Số 3, quận 4, TP.Hồ Chí Minh',
         customer:'Yến',
-        detail:[0,0,0,0,0,0,0,0,3,1,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        detail:[0,0,0,0,0,0,0,0,3,1,0,0,0,0,0,0,0,0,0,0,0,0,0,3],
 
     },
     {
@@ -88,7 +88,7 @@ let order=[
         phone:'0485628492',
         address:'303, đường Số 4, p.Số 5, quận 6, TP.Hồ Chí Minh',
         customer:'Hà',
-        detail:[0,0,2,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        detail:[0,0,2,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
 
     },
     {
@@ -96,7 +96,7 @@ let order=[
         phone:'0837483729',
         address:'404, đường Số 5, p.Số 6, quận 7, TP.Hồ Chí Minh',
         customer:'Châu',
-        detail:[0,0,0,6,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        detail:[0,0,0,6,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
 
     },
     {
@@ -104,14 +104,14 @@ let order=[
         phone:'0938475829',
         address:'505, đường Số 6, p.Số 7, quận 8, TP.Hồ Chí Minh',
         customer:'fuaisf231',
-        detail:[0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        detail:[0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
     },
     {
         status:'0',
         phone:'0183746294',
         address:'66, đường Số 7, p.Số 2, quận 1, TP.Hồ Chí Minh',
         customer:'Tiến',
-        detail:[0,0,0,1,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        detail:[0,0,0,1,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
     },
 ]
 
@@ -409,8 +409,8 @@ for (let i=0;i<btnModals.length;i++){
         if (parseInt(cart.innerText)>product[i].number)
             alert('Hiện chỉ còn ' +product[i].number+' sản phẩm '+product[i].name)
         else{
-            inCart[i]+=parseInt(cart.innerText);
-            product[i].number=product[i].number-parseInt(cart.innerText)
+            inCart[i+(pageNumber-1)*9]+=parseInt(cart.innerText);
+            product[i+(pageNumber-1)*9].number=product[i+(pageNumber-1)*9].number-parseInt(cart.innerText)
             numberCart=parseInt(cart.innerText)+parseInt(document.querySelector('.cart span').innerText)
             localStorage.setItem('numberCart',numberCart)
             document.querySelector('.cart span').innerText = numberCart;
