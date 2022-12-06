@@ -233,7 +233,7 @@ payBtn.addEventListener('click',function(){
                 json=localStorage.getItem('bill')
                 let bill=[]
                 if (json!=null)
-                    bill==JSON.parse(json)
+                    bill=JSON.parse(json)
                 bill.push(order.length-1)
                 json=JSON.stringify(bill)
                 localStorage.setItem('bill',json)
