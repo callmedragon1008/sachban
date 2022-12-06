@@ -42,7 +42,7 @@ console.log(inSearch)
 let tam=0;
 if (select!='Thể loại'){
     for (let i=0;i<product.length;i++)
-        if (product[i].type!=select||(product[i].name.toLowerCase()).lastIndexOf(searchInputText)==-1||(product[i].NXB.toLowerCase()).lastIndexOf(searchInputText)==-1||(product[i].author.toLowerCase()).lastIndexOf(searchInputText)==-1||((parseInt(product[i].cost))<parseInt(minSearch)||(parseInt(product[i].cost)>parseInt(maxSearch))))
+        if (product[i].type!=select||((product[i].name.toLowerCase()).lastIndexOf(searchInputText)==-1&&(product[i].NXB.toLowerCase()).lastIndexOf(searchInputText)==-1&&(product[i].author.toLowerCase()).lastIndexOf(searchInputText)==-1)||((parseInt(product[i].cost))<parseInt(minSearch)||(parseInt(product[i].cost)>parseInt(maxSearch))))
             {
                 inSearch.splice(i-tam,1)
                 tam++;
@@ -50,7 +50,7 @@ if (select!='Thể loại'){
 }
 else{
     for (let i=0;i<product.length;i++)
-        if ((product[i].name.toLowerCase()).lastIndexOf(searchInputText)==-1||(product[i].NXB.toLowerCase()).lastIndexOf(searchInputText)==-1||(product[i].author.toLowerCase()).lastIndexOf(searchInputText)==-1||(parseInt(product[i].cost))<parseInt(minSearch)||(parseInt(product[i].cost)>parseInt(maxSearch)))
+        if (((product[i].name.toLowerCase()).lastIndexOf(searchInputText)==-1&&(product[i].NXB.toLowerCase()).lastIndexOf(searchInputText)==-1&&(product[i].author.toLowerCase()).lastIndexOf(searchInputText)==-1)||(parseInt(product[i].cost))<parseInt(minSearch)||(parseInt(product[i].cost)>parseInt(maxSearch)))
         {
             inSearch.splice(i-tam,1)
             tam++;
@@ -243,15 +243,6 @@ if (countPage>1){
 }
 let pageIndex=document.querySelector('.page-index')
 let page=document.querySelectorAll('.page')
-pageIndex.addEventListener('click',function(){
-    localStorage.setItem('pageNumber',1)
-})
-
-for (let i=0;i<page.length;i++){
-    page[i].addEventListener('click',function(){
-        localStorage.setItem('pageNumber',i+2)
-    })
-}
 
 
 let btnSearch=document.querySelector("#search-icon")
