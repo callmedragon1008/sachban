@@ -244,7 +244,11 @@ let countPage=parseInt((product.length-1)/9)+1
 let pageNumber=localStorage.getItem('pageNumber')
 if (location.pathname=='/index.html'||location.pathname=='/') pageNumber=1
 pageNumber=parseInt(pageNumber)
-localStorage.setItem('pageNumber',pageNumber)
+if (pageNumber!=null)
+    localStorage.setItem('pageNumber',pageNumber)
+else
+localStorage.setItem('pageNumber',0)
+
 let cardList=document.getElementById("card-list")
 let a=product.length-9*(pageNumber-1);
 if (a>9) a=9
