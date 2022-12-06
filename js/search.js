@@ -151,7 +151,7 @@ for (let i=0;i<btnModals.length;i++){
     var btnCart=document.querySelector('.btn-cart')
     var btnMinus=document.querySelector(".minus")
     var btnPlus=document.querySelector(".plus")
-    var cart=document.getElementById("number-cart")
+    // var cart=document.getElementById("number-cart")
     document.getElementById("book-name").innerText=product[inSearch[i]].name
     document.getElementById("book-info").innerText='Nhà xuất bản : '+ product[inSearch[i]].NXB+' | Tác giả : '+product[inSearch[i]].author+' | Thể loại : '+product[inSearch[i]].type
     if (product[inSearch[i]].number>0)
