@@ -9,13 +9,13 @@ for (let i=0;i<customerList.length;i++)
         <div class="col-2" style="padding-left:3em;text-align:center;">
             <h4>${customerList[i].username}</h4>
         </div>
-        <div class="col-2" style="text-align:center;">
+        <div class="col-4" style="text-align:center;">
             <h4>${customerList[i].email}</h4>
             </div>
         <div class="col-1" style="text-align:center;">
             <h4>${customerList[i].password}</h4>
         </div>
-        <div class="col-3" style="padding-left:2em;text-align:center;">
+        <div class="col-2" style="padding-left:2em;text-align:center;">
             <h4>${customerList[i].address}</h4>
         </div>
         <div class="col-2" style="text-align:center;">
@@ -23,8 +23,6 @@ for (let i=0;i<customerList.length;i++)
         </div>
         <div class="col-1" style="text-align:center;">
             <button type="button" class="btn btn-outline-primary lock-btn"><i class="ri-lock-unlock-line"></i></button>
-        </div>
-        <div class="col-1">
             <button type="button" class="btn btn-outline-success btn-edit" data-bs-toggle="modal" data-bs-target="#myModal-edit"><i class="ri-file-settings-line"></i></button>
         </div>
     </div>
