@@ -85,6 +85,9 @@ for (let i=0;i<btnDeletes.length;i++)
             productTotal.innerHTML=`
             <span>${sum1}đ<span>
         `
+        if (sum1=='NaN') productTotal.innerHTML=`
+        <span>0đ<span>
+    `
             sumCart[i].innerText=temp
             cart[count[i]]=0
             temp=JSON.stringify(cart)
@@ -256,25 +259,3 @@ headerLogo.addEventListener('click',function(){
 let cartBtn=document.querySelector('#cart-1')
 if (status1!=1) cartBtn.href="shopping-cart.html"
 
-
-// search
-
-let btnSearch=document.querySelector("#search-icon")
-// let typeSearch=document.querySelector('#select-bottom')
-// let inputSearch=document.querySelector('#search-input')
-
-btnSearch.addEventListener('click',function(){
-    var e = document.getElementById("select-bottom")
-    var select = e.options[e.selectedIndex].innerText
-    var searchInput=document.getElementById("search-input")
-    var searchInputText=searchInput.value
-    let minSearch=document.querySelector('#min-find').value
-    let maxSearch=document.querySelector('#max-find').value
-    if (minSearch=='') minSearch='0'
-    if (maxSearch='') maxSearch='9999999'
-    localStorage.setItem('select',select)
-    localStorage.setItem('searchInputText',searchInputText)
-    localStorage.setItem('maxSearch',maxSearch)
-    localStorage.setItem('minSearch',minSearch)
-    window.location.href="search.html"
-})

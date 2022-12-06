@@ -56,19 +56,19 @@ let temp=0
 let cardList=document.getElementById('card-list')
 for (let i=0;i<inSearch.length;i++){
     if (temp==9) break;
-    if (product[i].realValue!=product[i].cost){
+    if (product[inSearch[i]].realValue!=product[inSearch[i]].cost){
         cardList.innerHTML += `
         <div class="col-lg-3 m-5">
         <div class="card">
             <button class="m-0 p-0 btn btn-primary btn-modal" style="border: none;background: none;" type="button" data-bs-toggle="modal" data-bs-target="#myModal">
-                <img class="card-img-top" src="${product[i].code}" alt="Card image">
+                <img class="card-img-top" src="${product[inSearch[i]].code}" alt="Card image">
             </button>
             <div class="card-body" >
-                <h4 class="card-title" style="height:60px;margin-bottom:0px;">${product[i].name}</h4>
-                <p class="card-text" style="text-decoration-line: line-through">${(parseInt(product[i].realValue)).toLocaleString()}đ</p>
+                <h4 class="card-title" style="height:60px;margin-bottom:0px;">${product[inSearch[i]].name}</h4>
+                <p class="card-text" style="text-decoration-line: line-through">${(parseInt(product[inSearch[i]].realValue)).toLocaleString()}đ</p>
                 <div class="row">
                     <div class="col-5">
-                        <h5 class="text-danger reduce-cost" style="margin-bottom:0px;margin-top:10px;">${(parseInt(product[i].cost)).toLocaleString()}đ</h5>
+                        <h5 class="text-danger reduce-cost" style="margin-bottom:0px;margin-top:10px;">${(parseInt(product[inSearch[i]].cost)).toLocaleString()}đ</h5>
                     </div>
                     <div class="col-7">
                         <a class="btn btn-primary text-light pay-button add-cart" style="float:right;"><i class="ri-shopping-cart-2-fill"></i>Thêm vào giỏ</a>
@@ -84,13 +84,13 @@ for (let i=0;i<inSearch.length;i++){
         <div class="col-lg-3 m-5">
         <div class="card">
             <button class="m-0 p-0 btn btn-primary btn-modal" style="border: none;background: none;" type="button" data-bs-toggle="modal" data-bs-target="#myModal">
-                <img class="card-img-top" src="${product[i].code}" alt="Card image">
+                <img class="card-img-top" src="${product[inSearch[i]].code}" alt="Card image">
             </button>
             <div class="card-body" >
-                <h4 class="card-title" style="margin-bottom:20px;height:59px;">${product[i].name}</h4>
+                <h4 class="card-title" style="margin-bottom:20px;height:59px;">${product[inSearch[i]].name}</h4>
                 <div class="row">
                     <div class="col-5" style="margin-top:10px;">
-                        <h5 class="text-danger reduce-cost">${(parseInt(product[i].realValue)).toLocaleString()}đ</h5>
+                        <h5 class="text-danger reduce-cost">${(parseInt(product[inSearch[i]].realValue)).toLocaleString()}đ</h5>
                     </div>
                     <div class="col-7">
                         <a class="btn btn-primary text-light pay-button add-cart" style="float:right;"><i class="ri-shopping-cart-2-fill"></i>Thêm vào giỏ</a>
