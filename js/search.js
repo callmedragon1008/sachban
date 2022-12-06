@@ -1,19 +1,5 @@
 let json
-if (localStorage.getItem('customerList')==null){
-    json=JSON.stringify(customerList)
-    localStorage.setItem('customerList',json)
-}
-else{
-    json=localStorage.getItem('customerList')
-    customerList=JSON.parse(json)
-}
-
-// Danh sách sản phẩm
-let numberCart=0
-let product=[]
-
-document.querySelector('.cart span').innerText = numberCart;
-numberCart=localStorage.getItem('numberCart')
+let numberCart=localStorage.getItem('numberCart')
 if (numberCart!=null)
     document.querySelector('.cart span').textContent=numberCart
 else
@@ -29,29 +15,60 @@ else{
     json=localStorage.getItem('describe')
     describe=JSON.parse(json)
 }
-let temp
-let countPage=parseInt((product.length-1)/9)+1
-let pageNumber=localStorage.getItem('pageNumber')
-if (location.pathname=='/index.html'||location.pathname=='/') pageNumber=1
-pageNumber=parseInt(pageNumber)
-localStorage.setItem('pageNumber',pageNumber)
-let cardList=document.getElementById("card-list")
-let a=product.length-9*(pageNumber-1);
-if (a>9) a=9
-for (let i=3;i<a+3;i++){
-    if (product[i+(pageNumber-1)*9].realValue!=product[i+(pageNumber-1)*9].cost){
+if (localStorage.getItem('customerList')==null){
+    json=JSON.stringify(customerList)
+    localStorage.setItem('customerList',json)
+}
+else{
+    json=localStorage.getItem('customerList')
+    customerList=JSON.parse(json)
+}
+
+// Danh sách sản phẩm
+json=localStorage.getItem('product')
+product=JSON.parse(json)
+// search
+
+let select=localStorage.getItem('select')
+let searchInputText=localStorage.getItem('searchInputText').toLowerCase()
+let maxSearch=localStorage.getItem('maxSearch')
+let minSearch=localStorage.getItem('minSearch')
+let inSearch=[]
+if (maxSearch=='')
+    maxSearch='9999999'
+for (let i=0;i<product.length;i++)
+    inSearch.push(i)
+if (select!='Thể loại'){
+    for (let i=0;i<product.length;i++)
+        if (product[i].type!=select||(product[i].name.toLowerCase()).lastIndexOf(searchInputText)==-1||(product[i].NXB.toLowerCase()).lastIndexOf(searchInputText)==-1
+        ||(product[i].author.toLowerCase()).lastIndexOf(searchInputText)==-1||(parseInt(product[i].cost))<parseInt(minSearch)||(parseInt(product[i].cost)>parseInt(maxSearch))
+        )
+            inSearch.splice(i,1)
+}
+else{
+    for (let i=0;i<product.length;i++)
+        if ((product[i].name.toLowerCase()).lastIndexOf(searchInputText)==-1||(product[i].NXB.toLowerCase()).lastIndexOf(searchInputText)==-1
+        ||(product[i].author.toLowerCase()).lastIndexOf(searchInputText)==-1||(parseInt(product[i].cost))<parseInt(minSearch)||(parseInt(product[i].cost)>parseInt(maxSearch))
+        )
+            inSearch.splice(i,1)
+}
+let temp=0
+let cardList=document.getElementById('card-list')
+for (let i=0;i<inSearch.length;i++){
+    if (temp==9) break;
+    if (product[i].realValue!=product[i].cost){
         cardList.innerHTML += `
         <div class="col-lg-3 m-5">
         <div class="card">
             <button class="m-0 p-0 btn btn-primary btn-modal" style="border: none;background: none;" type="button" data-bs-toggle="modal" data-bs-target="#myModal">
-                <img class="card-img-top" src="${product[i+(pageNumber-1)*9].code}" alt="Card image">
+                <img class="card-img-top" src="${product[i].code}" alt="Card image">
             </button>
             <div class="card-body" >
-                <h4 class="card-title" style="height:60px;margin-bottom:0px;">${product[i+(pageNumber-1)*9].name}</h4>
-                <p class="card-text" style="text-decoration-line: line-through">${(parseInt(product[i+(pageNumber-1)*9].realValue)).toLocaleString()}đ</p>
+                <h4 class="card-title" style="height:60px;margin-bottom:0px;">${product[i].name}</h4>
+                <p class="card-text" style="text-decoration-line: line-through">${(parseInt(product[i].realValue)).toLocaleString()}đ</p>
                 <div class="row">
                     <div class="col-5">
-                        <h5 class="text-danger reduce-cost" style="margin-bottom:0px;margin-top:10px;">${(parseInt(product[i+(pageNumber-1)*9].cost)).toLocaleString()}đ</h5>
+                        <h5 class="text-danger reduce-cost" style="margin-bottom:0px;margin-top:10px;">${(parseInt(product[i].cost)).toLocaleString()}đ</h5>
                     </div>
                     <div class="col-7">
                         <a class="btn btn-primary text-light pay-button add-cart" style="float:right;"><i class="ri-shopping-cart-2-fill"></i>Thêm vào giỏ</a>
@@ -67,13 +84,13 @@ for (let i=3;i<a+3;i++){
         <div class="col-lg-3 m-5">
         <div class="card">
             <button class="m-0 p-0 btn btn-primary btn-modal" style="border: none;background: none;" type="button" data-bs-toggle="modal" data-bs-target="#myModal">
-                <img class="card-img-top" src="${product[i+(pageNumber-1)*9].code}" alt="Card image">
+                <img class="card-img-top" src="${product[i].code}" alt="Card image">
             </button>
             <div class="card-body" >
-                <h4 class="card-title" style="margin-bottom:20px;height:59px;">${product[i+(pageNumber-1)*9].name}</h4>
+                <h4 class="card-title" style="margin-bottom:20px;height:59px;">${product[i].name}</h4>
                 <div class="row">
                     <div class="col-5" style="margin-top:10px;">
-                        <h5 class="text-danger reduce-cost">${(parseInt(product[i+(pageNumber-1)*9].realValue)).toLocaleString()}đ</h5>
+                        <h5 class="text-danger reduce-cost">${(parseInt(product[i].realValue)).toLocaleString()}đ</h5>
                     </div>
                     <div class="col-7">
                         <a class="btn btn-primary text-light pay-button add-cart" style="float:right;"><i class="ri-shopping-cart-2-fill"></i>Thêm vào giỏ</a>
@@ -83,50 +100,11 @@ for (let i=3;i<a+3;i++){
         </div>
     </div>      
             `
+            temp++
 }
-
-// Phân trang
-let pageFooter=document.querySelector(".paging")
-if (countPage>1){
-    if (pageNumber!=1&&pageNumber!=2) 
-        pageFooter.innerHTML+=`<li class="page-item"><a class="page-link page-before" href="./page${pageNumber-1}.html"><i class="ti-angle-left" style="font-size:12px;"></i></a></li>`
-    if (pageNumber==2)
-        pageFooter.innerHTML+=`<li class="page-item"><a class="page-link page-before" href="./index.html"><i class="ti-angle-left" style="font-size:12px;"></i></a></li>`
-    pageFooter.innerHTML+=`<li class="page-item page-index"><a class="page-link" href="./index.html">1</a></li>`
-    for (let i=2;i<=countPage;i++)
-        pageFooter.innerHTML+=`<li class="page-item page"><a class="page-link" href="./page${i}.html">${i}</a></li>`
-    if (pageNumber!=countPage)
-        pageFooter.innerHTML+=`<li class="page-item"><a class="page-link page-after" href="./page${pageNumber+1}.html"><i class="ti-angle-right" style="font-size:12px;"></i></a></li>`
-}
-let pageIndex=document.querySelector('.page-index')
-let page=document.querySelectorAll('.page')
-let pageBefore=document.querySelector('.page-before')
-let pageAfter=document.querySelector('.page-after')
-pageIndex.addEventListener('click',function(){
-    localStorage.setItem('pageNumber',1)
-})
-
-for (let i=0;i<page.length;i++){
-    page[i].addEventListener('click',function(){
-        localStorage.setItem('pageNumber',i+2)
-    })
-}
-if (pageNumber!=countPage)
-    pageAfter.addEventListener('click',function(){
-        localStorage.setItem('pageNumber',pageNumber+1)
-    })
-if (pageNumber!=1)  
-    pageBefore.addEventListener('click',function(){
-        localStorage.setItem('pageNumber',pageNumber-1)
-    })
-
 
 // modal
 let btnModals=document.querySelectorAll(".btn-modal")
-let headerLogin=document.querySelector('.header-login')
-let headerUser=document.querySelector('.header-user-name')
-let headerLogout=document.querySelector('.header-log-out')
-let status1=localStorage.getItem('status')
 
 for (let i=0;i<btnModals.length;i++){
   btnModals[i].addEventListener('click',function(){
@@ -167,26 +145,26 @@ for (let i=0;i<btnModals.length;i++){
                     
                 </div>
                 <div class="col-4">
-                    <img src="${product[i+(pageNumber-1)*9+3].code}" alt="" srcset="" style="float: left;width:20rem;">
+                    <img src="${product[inSearch[i]].code}" alt="" srcset="" style="float: left;width:20rem;">
                 </div>
     `
     var btnCart=document.querySelector('.btn-cart')
     var btnMinus=document.querySelector(".minus")
     var btnPlus=document.querySelector(".plus")
     var cart=document.getElementById("number-cart")
-    document.getElementById("book-name").innerText=product[i+(pageNumber-1)*9+3].name
-    document.getElementById("book-info").innerText='Nhà xuất bản : '+ product[i+(pageNumber-1)*9+3].NXB+' | Tác giả : '+product[i+(pageNumber-1)*9+3].author+' | Thể loại : '+product[i+(pageNumber-1)*9+3].type
-    if (product[i+(pageNumber-1)*9+3].number>0)
+    document.getElementById("book-name").innerText=product[inSearch[i]].name
+    document.getElementById("book-info").innerText='Nhà xuất bản : '+ product[inSearch[i]].NXB+' | Tác giả : '+product[inSearch[i]].author+' | Thể loại : '+product[inSearch[i]].type
+    if (product[inSearch[i]].number>0)
         document.getElementById("book-status").innerText='Tình trạng : Còn hàng'
     else
         document.getElementById("book-status").innerText='Tình trạng : Hết hàng'
-    document.getElementById('book-content').innerText=describe[i+(pageNumber-1)*9+3]
-    if (product[i+(pageNumber-1)*9+3].realValue!=product[i+(pageNumber-1)*9+3].cost)
-        document.getElementById('realValue').innerText=(parseInt(product[i+(pageNumber-1)*9+3].realValue)).toLocaleString()+'đ'
+    document.getElementById('book-content').innerText=describe[inSearch[i]]
+    if (product[inSearch[i]].realValue!=product[inSearch[i]].cost)
+        document.getElementById('realValue').innerText=(parseInt(product[inSearch[i]].realValue)).toLocaleString()+'đ'
     else
         document.getElementById('realValue').innerText=''
 
-    document.getElementById('cost').innerText=(parseInt(product[i+(pageNumber-1)*9+3].cost)).toLocaleString()+'đ'
+    document.getElementById('cost').innerText=(parseInt(product[inSearch[i]].cost)).toLocaleString()+'đ'
     cart.innerText=1
     btnMinus.addEventListener('click',function(){
         if (parseInt(cart.innerText)>1)
@@ -199,8 +177,8 @@ for (let i=0;i<btnModals.length;i++){
         if (parseInt(cart.innerText)>product[i].number)
             alert('Hiện chỉ còn ' +product[i].number+' sản phẩm '+product[i].name)
         else{
-            inCart[i+(pageNumber-1)*9]+=parseInt(cart.innerText);
-            product[i+(pageNumber-1)*9].number=product[i+(pageNumber-1)*9].number-parseInt(cart.innerText)
+            inCart[inSearch[i]]+=parseInt(cart.innerText);
+            product[inSearch[i]].number=product[inSearch[i]].number-parseInt(cart.innerText)
             numberCart=parseInt(cart.innerText)+parseInt(document.querySelector('.cart span').innerText)
             localStorage.setItem('numberCart',numberCart)
             document.querySelector('.cart span').innerText = numberCart;
@@ -212,67 +190,60 @@ for (let i=0;i<btnModals.length;i++){
 })
 }
 
-   
-    
+// // Phân trang
+// let countPage=(inSearch.length/9)+1
+// let pageNumber=1
+// let pageFooter=document.querySelector(".paging")
+// if (countPage>1){
+//     if (pageNumber!=1&&pageNumber!=2) 
+//         pageFooter.innerHTML+=`<li class="page-item"><a class="page-link page-before" href="./page${pageNumber-1}.html"><i class="ti-angle-left" style="font-size:12px;"></i></a></li>`
+//     if (pageNumber==2)
+//         pageFooter.innerHTML+=`<li class="page-item"><a class="page-link page-before" href="./index.html"><i class="ti-angle-left" style="font-size:12px;"></i></a></li>`
+//     pageFooter.innerHTML+=`<li class="page-item page-index"><a class="page-link" href="./index.html">1</a></li>`
+//     for (let i=2;i<=countPage;i++)
+//         pageFooter.innerHTML+=`<li class="page-item page"><a class="page-link" href="./page${i}.html">${i}</a></li>`
+//     if (pageNumber!=countPage)
+//         pageFooter.innerHTML+=`<li class="page-item"><a class="page-link page-after" href="./page${pageNumber+1}.html"><i class="ti-angle-right" style="font-size:12px;"></i></a></li>`
+// }
+// let pageIndex=document.querySelector('.page-index')
+// let page=document.querySelectorAll('.page')
+// let pageBefore=document.querySelector('.page-before')
+// let pageAfter=document.querySelector('.page-after')
+// pageIndex.addEventListener('click',function(){
+//     localStorage.setItem('pageNumber',1)
+// })
 
-// header,login
-if (status1==1){
-    headerLogin.classList.add('disappear')
-    headerUser.classList.remove('disappear')
-    headerLogout.classList.remove('disappear')
-    headerUser.innerHTML=`<a class="nav-link me-lg-3" href=""><i class="ti-user"></i>${localStorage.getItem('username1')}</a>`
-}
-
-// Thêm sản phẩm vào giỏ hàng
-let inCart=[]
-if (localStorage.getItem('inCart')==null)
-    for (let i=0;i<product.length;i++)
-    {
-        inCart.push(0)
-    }
-else {
-    json=localStorage.getItem('inCart')
-    inCart=JSON.parse(json)
-}
-
-let carts = document.querySelectorAll('.add-cart')
-for (let i = 0; i < carts.length; i++) {
-    carts[i].addEventListener('click',function(){
-        if ((product[i+(pageNumber-1)*9].number)>0){
-            inCart[i+(pageNumber-1)*9]++;
-            json=JSON.stringify(inCart)
-            localStorage.setItem('inCart',json)
-            numberCart=localStorage.getItem('numberCart')
-            product[i+(pageNumber-1)*9].number--;
-            json=JSON.stringify(product)
-            localStorage.setItem('product',json)
-            if (document.querySelector('.cart span').textContent=='0') 
-                numberCart=1
-            else{
-                numberCart++;
-        }
-            localStorage.setItem('numberCart',numberCart)
-            document.querySelector('.cart span').innerText = numberCart;
-        }
-        else
-            alert('Đã hết hàng')
-})
-}
+// for (let i=0;i<page.length;i++){
+//     page[i].addEventListener('click',function(){
+//         localStorage.setItem('pageNumber',i+2)
+//     })
+// }
+// if (pageNumber!=countPage)
+//     pageAfter.addEventListener('click',function(){
+//         localStorage.setItem('pageNumber',pageNumber+1)
+//     })
+// if (pageNumber!=1)  
+//     pageBefore.addEventListener('click',function(){
+//         localStorage.setItem('pageNumber',pageNumber-1)
+//     })
 
 
-headerLogout.addEventListener('click',function(){
-    localStorage.setItem('status',0)
-    for (let i=0;i<product.length;i++){
-        inCart[i]=0
-    }
-    localStorage.setItem('numberCart',0)
-    json=JSON.stringify(inCart)
-    localStorage.setItem('inCart',json)
-    headerLogin.classList.remove('disappear')
-    headerUser.classList.add('disappear')
-    headerLogout.classList.add('disappear')
-})
 let btnSearch=document.querySelector("#search-icon")
+// let typeSearch=document.querySelector('#select-bottom')
+// let inputSearch=document.querySelector('#search-input')
+
 btnSearch.addEventListener('click',function(){
+    var e = document.getElementById("select-bottom")
+    var select = e.options[e.selectedIndex].innerText
+    var searchInput=document.getElementById("search-input")
+    var searchInputText=searchInput.value
+    let minSearch=document.querySelector('#min-find').value
+    let maxSearch=document.querySelector('#max-find').value
+    if (minSearch=='') minSearch='0'
+    if (maxSearch=='') maxSearch='9999999'
+    localStorage.setItem('select',select)
+    localStorage.setItem('searchInputText',searchInputText)
+    localStorage.setItem('maxSearch',maxSearch)
+    localStorage.setItem('minSearch',minSearch)
     window.location.href="search.html"
 })

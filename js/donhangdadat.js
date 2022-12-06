@@ -1,27 +1,38 @@
+let headerUser=document.querySelector('#header-user-name')
+let status1=localStorage.getItem('status')
+status1=parseInt(status1)
+if (status1==1){
+    headerUser.innerHTML=`<a class="nav-link me-lg-3" href=""><i class="ti-user"></i>${localStorage.getItem('username1')}</a>`
+}
+
+let numberCart=localStorage.getItem('numberCart')
+if (numberCart==null)
+numberCart=0 
+document.querySelector('.cart span').innerText = numberCart;
 let json=localStorage.getItem('order')
 let order=JSON.parse(json)
-document.getElementById('count-order').innerText='Số đơn hàng:'+order.length
 json=localStorage.getItem('product')
 let product=JSON.parse(json)
-for (let i=0;i<order.length;i++){
+json=localStorage.getItem('bill')
+let bill=[]
+if (json!=0){
+    bill=JSON.parse(json)
+    for (let i=0;i<bill.length;i++)
     document.getElementById('order-list').innerHTML+=`
     <div class="row">
-        <div class="col-2">
+        <div class="col-1">
             <div class="form-check">
-            <input class="form-check-input" type="checkbox" name="check" class="check-box">
-            <label class="form-check-label" for="gridRadios1">
-                <h5 id="check-${i}">Chưa xử lí</h5>
-            </label>
+                <h6 id="check">Chưa xử lí</h6>
             </div>
         </div>
         <div class="col-2">
-            <h5>${order[i].customer}</h5>
+            <h6>${order[bill[i]].customer}</h6>
         </div>
         <div class="col-4">
-            <h5>${order[i].address}</h5>
+            <h6>${order[bill[i]].address}</h6>
         </div>
         <div class="col-2">
-            <h5>${order[i].phone}</h5>
+            <h6>${order[bill[i]].phone}</h6>
         </div>
         
         <div class="col-2">
@@ -31,27 +42,11 @@ for (let i=0;i<order.length;i++){
     <hr>
     `
 }
-let checkBox=document.getElementsByName('check')
+let checkBox=document.getElementsByClassName('check')
 for (let i=0;i<checkBox.length;i++){
     if (order[i].status==1){
-        checkBox[i].checked=true
         document.getElementById('check-'+i).innerText='Đã xử lí'
     }
-}
-for (let i=0;i<checkBox.length;i++){
-    checkBox[i].addEventListener('change',function(){
-        order[i].status=parseInt(order[i].status)*-1
-        if (order[i].status==1){
-            checkBox[i].checked=true
-            document.getElementById('check-'+i).innerText='Đã xử lí'
-        }
-        else{
-            checkBox[i].checked=true
-            document.getElementById('check-'+i).innerText='Đã xử lí'
-        }
-        json=JSON.stringify(order)
-        localStorage.setItem('order',json)
-    })
 }
 let editBtn=document.querySelectorAll(".btn-edit")
 for (let i=0;i<editBtn.length;i++){
@@ -74,9 +69,9 @@ for (let i=0;i<editBtn.length;i++){
 
     </div>`
         let sum=0
-        for(let j=0;j<(order[i].detail).length;j++)
-        if ((order[i]).detail[j]!=0){
-            sum+=(parseInt(product[j].cost)*parseInt(order[i].detail[j]))
+        for(let j=0;j<(order[bill[i]].detail).length;j++)
+        if ((order[bill[i]]).detail[j]!=0){
+            sum+=(parseInt(product[j].cost)*parseInt(order[bill[i]].detail[j]))
             document.getElementById('modal-order').innerHTML+=
     `<div class="row">
     <div class="col-1">
@@ -88,10 +83,10 @@ for (let i=0;i<editBtn.length;i++){
             <span>${(parseInt(product[j].cost)).toLocaleString()}đ</span>
         </div>
         <div class="col-2">
-            <span style="font-size:19px;margin-left:20px;">${(order[i]).detail[j]}</span>
+            <span style="font-size:19px;margin-left:20px;">${(order[bill[i]]).detail[j]}</span>
         </div>
         <div class="col-3 d-flex">
-            <h5 class="sum-cart">${(parseInt(product[j].cost)*parseInt(order[i].detail[j])).toLocaleString()}đ</h5>
+            <h5 class="sum-cart">${(parseInt(product[j].cost)*parseInt(order[bill[i]].detail[j])).toLocaleString()}đ</h5>
         </div>
 
     </div>`
