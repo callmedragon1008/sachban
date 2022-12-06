@@ -20,7 +20,7 @@ if (json!=0){
     for (let i=0;i<bill.length;i++)
     document.getElementById('order-list').innerHTML+=`
     <div class="row">
-        <div class="col-1">
+        <div class="col-2">
             <div class="form-check">
                 <h6 id="check">Chưa xử lí</h6>
             </div>
@@ -34,7 +34,6 @@ if (json!=0){
         <div class="col-2">
             <h6>${order[bill[i]].phone}</h6>
         </div>
-        
         <div class="col-2">
             <button type="button" class="btn btn-outline-primary btn-edit" data-bs-toggle="modal" data-bs-target="#myModal-edit"><i class="ri-file-text-fill"></i></button>
         </div>
@@ -52,9 +51,9 @@ let editBtn=document.querySelectorAll(".btn-edit")
 for (let i=0;i<editBtn.length;i++){
     editBtn[i].addEventListener('click',function(){
         document.getElementById('modal-order').innerHTML=`<div class="row">
-        <div class="col-1">
+        <div class="col-2">
         </div>
-        <div class="col-4">
+        <div class="col-3">
             <h5>Tên sản phẩm</h5>
         </div>
         <div class="col-2">
@@ -74,26 +73,27 @@ for (let i=0;i<editBtn.length;i++){
             sum+=(parseInt(product[j].cost)*parseInt(order[bill[i]].detail[j]))
             document.getElementById('modal-order').innerHTML+=
     `<div class="row">
-    <div class="col-1">
-    </div>
-        <div class="col-4">
+        <div class="col-2" style="padding-left:60px;">
+            <img src="${product[j].code}" style="width:100px;">
+        </div>
+        <div class="col-3" style="padding-top:40px;">
             <span>${product[j].name}</span>
         </div>
-        <div class="col-2">
+        <div class="col-2" style="padding-top:40px;">
             <span>${(parseInt(product[j].cost)).toLocaleString()}đ</span>
         </div>
-        <div class="col-2">
+        <div class="col-2" style="padding-top:40px;">
             <span style="font-size:19px;margin-left:20px;">${(order[bill[i]]).detail[j]}</span>
         </div>
-        <div class="col-3 d-flex">
+        <div class="col-2 d-flex" style="padding-top:40px;">
             <h5 class="sum-cart">${(parseInt(product[j].cost)*parseInt(order[bill[i]].detail[j])).toLocaleString()}đ</h5>
         </div>
-
     </div>`
     
         }
         document.getElementById('modal-order').innerHTML+=
-    `<div class="row">
+    `<br>
+    <div class="row">
         <div class="col-1">
         </div>
         <div class="col-4">
