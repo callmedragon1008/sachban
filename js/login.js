@@ -17,7 +17,7 @@ btnLogin.addEventListener('click', (e) => {
   }
   else{
     if (username.value=="admin"&&password.value=="123"){
-      alert("Xin chào admin đẹp trai:)");
+      alert("Xin chào admin Minh");
       window.location.href = "admin.html"
     }
     else

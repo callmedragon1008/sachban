@@ -11,8 +11,6 @@ if (status1==1){
     headerUser.innerHTML=`<a class="nav-link me-lg-3" href=""><i class="ti-user"></i>${localStorage.getItem('username1')}</a>`
 }
 
-
-
 let numberCart=localStorage.getItem('numberCart')
 if (numberCart==null)
 numberCart=0 
@@ -23,6 +21,7 @@ let productTotal = document.querySelector(".total-price");
 let productContainer = document.querySelector(".products");
 let json=localStorage.getItem('inCart')
 let cart=JSON.parse(json)
+if (cart==null) cart=[]
 let sum=0
 let count=[]
 let dem=0
@@ -228,6 +227,13 @@ payBtn.addEventListener('click',function(){
                     detail:cart,
                     customer:localStorage.getItem('username1'),
                 })
+                json=localStorage.getItem('bill')
+                let bill=[]
+                if (json!=null)
+                    bill==JSON.parse(json)
+                bill.push(order.length-1)
+                json=JSON.stringify(bill)
+                localStorage.setItem('bill',json)
                 json=JSON.stringify(order)
                 localStorage.setItem('order',json)
                 for (let i=0;i<cart.length;i++)
@@ -249,3 +255,26 @@ headerLogo.addEventListener('click',function(){
 // Đơn hàng đã đặt
 let cartBtn=document.querySelector('#cart-1')
 if (status1!=1) cartBtn.href="shopping-cart.html"
+
+
+// search
+
+let btnSearch=document.querySelector("#search-icon")
+// let typeSearch=document.querySelector('#select-bottom')
+// let inputSearch=document.querySelector('#search-input')
+
+btnSearch.addEventListener('click',function(){
+    var e = document.getElementById("select-bottom")
+    var select = e.options[e.selectedIndex].innerText
+    var searchInput=document.getElementById("search-input")
+    var searchInputText=searchInput.value
+    let minSearch=document.querySelector('#min-find').value
+    let maxSearch=document.querySelector('#max-find').value
+    if (minSearch=='') minSearch='0'
+    if (maxSearch='') maxSearch='9999999'
+    localStorage.setItem('select',select)
+    localStorage.setItem('searchInputText',searchInputText)
+    localStorage.setItem('maxSearch',maxSearch)
+    localStorage.setItem('minSearch',minSearch)
+    window.location.href="search.html"
+})

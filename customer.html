@@ -17,9 +17,7 @@
         <div class="row">
             <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 min-vh-100 bg-dark min-vh-100">
                 <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100 position-fixed">
-                    <a href="/" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-                        <i class="ri-arrow-go-back-line"></i> <span class="fs-5 d-none d-sm-inline">Về shop</span>
-                    </a>
+                    <span class="fs-5 d-none d-sm-inline">Xin chào Minh</span>
                     <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
                         <li class="nav-item">
                             <a href="admin.html" class="nav-link align-middle px-0">
@@ -43,19 +41,9 @@
                     </ul>
                     <hr>
                     <div class="dropdown pb-4">
-                        <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src="./asset/image/Untitled.png" alt="hugenerd" width="30" height="30" class="rounded-circle">
-                            <span class="d-none d-sm-inline mx-1">loser</span>
+                        <a href="./index.html" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                            <i class="ri-logout-box-line"></i><h3 class="fs-5 d-none d-sm-inline">Đăng xuất</h3>
                         </a>
-                        <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
-                            <li><a class="dropdown-item" href="#">New project...</a></li>
-                            <li><a class="dropdown-item" href="#">Settings</a></li>
-                            <li><a class="dropdown-item" href="#">Profile</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="#">Sign out</a></li>
-                        </ul>
                     </div>
                 </div>
             </div>
@@ -94,6 +82,67 @@
         </div>
         
     </div>
+    <div class="modal" id="myModal-edit">
+        <div class="modal-dialog d-flex" style="min-width: 100%;">
+            <div class="container">
+            <div class="modal-content" style="width:60%;">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <div class="col-auto col-md-3 col-xl-3 px-sm-6 px-2"  style="margin-left: 15em;">
+                        
+                        <div class="d-flex flex-column align-items-center align-items-sm-center px-3 pt-2">            
+                            <form style="width: 40rem;">
+                            
+                            <div class="row mb-3">
+                                <label for="inputName" class="col-sm-3 col-form-label">Tên đăng nhập:</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" id="inputName">
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="inputParValue" class="col-sm-3 col-form-label">Email:</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" id="inputParValue">
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="inputPrice" class="col-sm-3 col-form-label">Mật khẩu:</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" id="inputPrice">
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="inputNumber" class="col-sm-3 col-form-label">Địa chỉ giao hàng:</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" id="inputNumber">
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="inputNXB" class="col-sm-3 col-form-label">Số điện thoại:</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" id="inputNXB">
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-9"></div>
+                                <div class="col-3">
+                                    <button type="button" class="btn btn-primary" id="btn-confirm">Xác nhận</button>
+                                </div>
+                            </div>
+                            
+                        </form>
+                        
+                    </div>
+                    
+                </div>
+            </div> 
+        </div>
+                    </div>
+                </div>
+                </div>
     <script src="./js/customer.js"></script>
 </body>
 </html>

@@ -68,7 +68,7 @@ else{
 
 let order=[
     {
-        status:'0',
+        status:'-1',
         phone:'0394827938',
         address:'101, đường Số 1, p.Số 2, quận 3, TP.Hồ Chí Minh',
         customer:'Bảo',
@@ -76,7 +76,7 @@ let order=[
 
     },
     {
-        status:'0',
+        status:'1',
         phone:'0394839483',
         address:'202, đường Số 2, p.Số 3, quận 4, TP.Hồ Chí Minh',
         customer:'Yến',
@@ -84,7 +84,7 @@ let order=[
 
     },
     {
-        status:'0',
+        status:'-1',
         phone:'0485628492',
         address:'303, đường Số 4, p.Số 5, quận 6, TP.Hồ Chí Minh',
         customer:'Hà',
@@ -92,7 +92,7 @@ let order=[
 
     },
     {
-        status:'0',
+        status:'-1',
         phone:'0837483729',
         address:'404, đường Số 5, p.Số 6, quận 7, TP.Hồ Chí Minh',
         customer:'Châu',
@@ -100,14 +100,14 @@ let order=[
 
     },
     {
-        status:'0',
+        status:'-1',
         phone:'0938475829',
         address:'505, đường Số 6, p.Số 7, quận 8, TP.Hồ Chí Minh',
         customer:'fuaisf231',
         detail:[0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
     },
     {
-        status:'0',
+        status:'-1',
         phone:'0183746294',
         address:'66, đường Số 7, p.Số 2, quận 1, TP.Hồ Chí Minh',
         customer:'Tiến',
@@ -486,6 +486,21 @@ headerLogout.addEventListener('click',function(){
 // search
 
 let btnSearch=document.querySelector("#search-icon")
+// let typeSearch=document.querySelector('#select-bottom')
+// let inputSearch=document.querySelector('#search-input')
+
 btnSearch.addEventListener('click',function(){
+    var e = document.getElementById("select-bottom")
+    var select = e.options[e.selectedIndex].innerText
+    var searchInput=document.getElementById("search-input")
+    var searchInputText=searchInput.value
+    let minSearch=document.querySelector('#min-find').value
+    let maxSearch=document.querySelector('#max-find').value
+    if (minSearch=='') minSearch='0'
+    if (maxSearch=='') maxSearch='9999999'
+    localStorage.setItem('select',select)
+    localStorage.setItem('searchInputText',searchInputText)
+    localStorage.setItem('maxSearch',maxSearch)
+    localStorage.setItem('minSearch',minSearch)
     window.location.href="search.html"
 })

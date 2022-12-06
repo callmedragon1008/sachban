@@ -25,7 +25,7 @@ for (let i=0;i<customerList.length;i++)
             <button type="button" class="btn btn-outline-primary lock-btn"><i class="ri-lock-unlock-line"></i></button>
         </div>
         <div class="col-1">
-            <button type="button" class="btn btn-outline-success"><i class="ri-file-settings-line"></i></button>
+            <button type="button" class="btn btn-outline-success btn-edit" data-bs-toggle="modal" data-bs-target="#myModal-edit"><i class="ri-file-settings-line"></i></button>
         </div>
     </div>
     <hr>
@@ -87,4 +87,26 @@ for (let i=0;i<customerList.length;i++){
     else 
         localStorage.setItem(user.username,' ');
       
+}
+
+let editBtn=document.querySelectorAll('.btn-edit')
+for (let i=0;i<editBtn.length;i++){
+    editBtn[i].addEventListener('click',function(){
+        document.getElementById('inputName').value=customerList[i].username
+        document.getElementById('inputParValue').value=customerList[i].email
+        document.getElementById('inputPrice').value=customerList[i].password
+        document.getElementById('inputNumber').value=customerList[i].address
+        document.getElementById('inputNXB').value=customerList[i].phonenumber
+        let confirmBtn=document.querySelector("#btn-confirm")
+        confirmBtn.addEventListener('click',function(){
+            customerList[i].username=document.getElementById('inputName').value
+            customerList[i].email=document.getElementById('inputParValue').value
+            customerList[i].password=document.getElementById('inputPrice').value
+            customerList[i].address=document.getElementById('inputNumber').value
+            customerList[i].phonenumber=document.getElementById('inputNXB').value
+            json=JSON.stringify(customerList)
+            localStorage.setItem('customerList',json)
+            window.location.href="customer.html"
+        })
+    })
 }
