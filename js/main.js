@@ -154,7 +154,7 @@ product=[
     {name: 'Người Vô Hình',code:'', type: 'Kinh dị - Giả tưởng', realValue: '80000', cost: '64000', number: 10, NXB:'Nhà Xuất Bản Văn Học' , author:'H.G.Wells'},
     {name: 'Người Minh Họa',code:'', type: 'Kinh dị - Giả tưởng', realValue: '118000', cost: '94400', number: 10, NXB:'Nhà Xuất Bản Văn Học' , author:'Ray Bradbury'},
     {name: 'Nắm Bàn Tay Lạnh Giá',code:'', type: 'Kinh dị - Giả tưởng', realValue: '179000', cost: '142000', number: 10, NXB:'Nhà Xuất Bản Hà Nội' , author:'Robert Aickman'},
-    {name: 'Trưởng Thành Là Khi Nỗi Buồn Cũng Có Deadline',code:'', type: 'Tản văn - Tạp văn', realValue: '88000', cost: '70800', number: 10, NXB:'Nhà Xuất Bản Văn Học' , author:'Writinman'},
+    {name: 'Trưởng Thành Là Khi Nỗi Buồn',code:'', type: 'Tản văn - Tạp văn', realValue: '88000', cost: '70800', number: 10, NXB:'Nhà Xuất Bản Văn Học' , author:'Writinman'},
     {name: 'Hẹn Nhau Phía Sau Tan Vỡ',code:'', type: 'Tản văn - Tạp văn', realValue: '86000', cost: '68800', number: 10, NXB:'Nhà Xuất Bản Phụ Nữ' , author:'An'},
     {name: 'Những Người Đàn Ông Không Có Đàn Bà',code:'', type: 'Tản văn - Tạp văn', realValue: '100000', cost: '80800', number: 10, NXB:'Nhà Xuất Bản Hội Nhà Văn' , author:'Haruki Murakami'},
     {name: 'Thiên Tài Bên Trái, Kẻ Điên Bên Phải ',code:'', type: 'Tản văn - Tạp văn', realValue: '179000', cost: '143000', number: 10, NXB:'Nhà Xuất Bản Thế Giới' , author:'Cao Minh'},
