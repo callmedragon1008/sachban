@@ -58,7 +58,7 @@ else{
 }
 let temp=0
 let cardList=document.getElementById('card-list')
-for (let i=0;i<inSearch.length;i++){
+for (let i=8;i<inSearch.length;i++){
     if (temp==9) break;
     if (product[inSearch[i]].realValue!=product[inSearch[i]].cost){
         cardList.innerHTML += `
@@ -149,26 +149,26 @@ for (let i=0;i<btnModals.length;i++){
                     
                 </div>
                 <div class="col-4">
-                    <img src="${product[inSearch[i]].code}" alt="" srcset="" style="float: left;width:20rem;">
+                    <img src="${product[inSearch[i+8]].code}" alt="" srcset="" style="float: left;width:20rem;">
                 </div>
     `
     var btnCart=document.querySelector('.btn-cart')
     var btnMinus=document.querySelector(".minus")
     var btnPlus=document.querySelector(".plus")
     var cart=document.getElementById("number-cart")
-    document.getElementById("book-name").innerText=product[inSearch[i]].name
-    document.getElementById("book-info").innerText='Nhà xuất bản : '+ product[inSearch[i]].NXB+' | Tác giả : '+product[inSearch[i]].author+' | Thể loại : '+product[inSearch[i]].type
-    if (product[inSearch[i]].number>0)
+    document.getElementById("book-name").innerText=product[inSearch[i+8]].name
+    document.getElementById("book-info").innerText='Nhà xuất bản : '+ product[inSearch[i+8]].NXB+' | Tác giả : '+product[inSearch[i+8]].author+' | Thể loại : '+product[inSearch[i+8]].type
+    if (product[inSearch[i+8]].number>0)
         document.getElementById("book-status").innerText='Tình trạng : Còn hàng'
     else
         document.getElementById("book-status").innerText='Tình trạng : Hết hàng'
-    document.getElementById('book-content').innerText=describe[inSearch[i]]
-    if (product[inSearch[i]].realValue!=product[inSearch[i]].cost)
-        document.getElementById('realValue').innerText=(parseInt(product[inSearch[i]].realValue)).toLocaleString()+'đ'
+    document.getElementById('book-content').innerText=describe[inSearch[i+8]]
+    if (product[inSearch[i+8]].realValue!=product[inSearch[i+8]].cost)
+        document.getElementById('realValue').innerText=(parseInt(product[inSearch[i+8]].realValue)).toLocaleString()+'đ'
     else
         document.getElementById('realValue').innerText=''
 
-    document.getElementById('cost').innerText=(parseInt(product[inSearch[i]].cost)).toLocaleString()+'đ'
+    document.getElementById('cost').innerText=(parseInt(product[inSearch[i+8]].cost)).toLocaleString()+'đ'
     cart.innerText=1
     btnMinus.addEventListener('click',function(){
         if (parseInt(cart.innerText)>1)
@@ -178,11 +178,11 @@ for (let i=0;i<btnModals.length;i++){
         cart.innerText=(parseInt(cart.innerText)+1)+''
         })
     btnCart.addEventListener('click',function(){
-        if (parseInt(cart.innerText)>product[inSearch[i]].number)
-            alert('Hiện chỉ còn ' +product[inSearch[i]].number+' sản phẩm '+product[inSearch[i]].name)
+        if (parseInt(cart.innerText)>product[inSearch[i+8]].number)
+            alert('Hiện chỉ còn ' +product[inSearch[i+8]].number+' sản phẩm '+product[inSearch[i+8]].name)
         else{
-            inCart[inSearch[i]]+=parseInt(cart.innerText);
-            product[inSearch[i]].number=product[inSearch[i]].number-parseInt(cart.innerText)
+            inCart[inSearch[i+8]]+=parseInt(cart.innerText);
+            product[inSearch[i+8]].number=product[inSearch[i]].number-parseInt(cart.innerText)
             numberCart=parseInt(cart.innerText)+parseInt(document.querySelector('.cart span').innerText)
             localStorage.setItem('numberCart',numberCart)
             document.querySelector('.cart span').innerText = numberCart;
@@ -193,7 +193,7 @@ for (let i=0;i<btnModals.length;i++){
     
 })
 }
-// Thêm sản phẩm vào giỏ
+
 let inCart=[]
 if (localStorage.getItem('inCart')==null)
     for (let i=0;i<product.length;i++)
@@ -208,12 +208,12 @@ else {
 let carts = document.querySelectorAll('.add-cart')
 for (let i = 0; i < carts.length; i++) {
     carts[i].addEventListener('click',function(){
-        if ((product[inSearch[i]].number)>0){
-            inCart[inSearch[i]]++;
+        if ((product[inSearch[i+8]].number)>0){
+            inCart[inSearch[i+8]]++;
             json=JSON.stringify(inCart)
             localStorage.setItem('inCart',json)
             numberCart=localStorage.getItem('numberCart')
-            product[inSearch[i]].number--;
+            product[inSearch[i+8]].number--;
             json=JSON.stringify(product)
             localStorage.setItem('product',json)
             if (document.querySelector('.cart span').textContent=='0') 
@@ -243,16 +243,6 @@ if (countPage>1){
 }
 let pageIndex=document.querySelector('.page-index')
 let page=document.querySelectorAll('.page')
-pageIndex.addEventListener('click',function(){
-    localStorage.setItem('pageNumber',1)
-})
-
-for (let i=0;i<page.length;i++){
-    page[i].addEventListener('click',function(){
-        localStorage.setItem('pageNumber',i+2)
-    })
-}
-
 
 let btnSearch=document.querySelector("#search-icon")
 // let typeSearch=document.querySelector('#select-bottom')

@@ -55,7 +55,6 @@ for (let i=0;i<deleteBtn.length;i++){
         confirmBtn.addEventListener('click',function(){
             product.splice(i,1)
             json=JSON.stringify(product)
-
             localStorage.setItem('product',json)
             window.location.href='productList.html'
         })
