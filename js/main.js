@@ -6,7 +6,7 @@ let customerList=[
         address:'01 Số 1,P.12,Alsaska',
         phonenumber:'043489234',
         password: 1223435,
-        status:'-1',
+        status:'1',
     },
     {
         username: 'TranB',
@@ -14,7 +14,7 @@ let customerList=[
         address:'27 Số 2,P.10,Đồng Hới',
         phonenumber:'0936721892',
         password: 8594385,
-        status:'-1',
+        status:'1',
     },
     {
         username: 'LeC',
@@ -22,7 +22,7 @@ let customerList=[
         address:'02 Số 3,P.2,Đồng Nai',
         phonenumber:'0947284620',
         password: 1526374,
-        status:'-1',
+        status:'1',
     },
     {
         username: 'HoangD',
@@ -30,7 +30,7 @@ let customerList=[
         address:'72 Số 4,P.Thảo Điền,Quận 2, Tp. Hồ Chí Minh',
         phonenumber:'0193856294',
         password: 3836274,
-        status:'-1',
+        status:'1',
     },
     {
         username: 'VoE',
@@ -38,7 +38,7 @@ let customerList=[
         address:'50 Số 5,P.22,Quận Bình Thạnh',
         phonenumber:'0384739184',
         password: 8462846,
-        status:'-1',
+        status:'1',
     },
     {
         username: 'DoF',
@@ -46,7 +46,7 @@ let customerList=[
         address:'05 Số 6,P.Phú Mỹ Hưng,Quận 7',
         phonenumber:'0385628471',
         password: 2846374,
-        status:'-1',
+        status:'1',
     },
     {
         username: 'HuynhG',
@@ -54,7 +54,7 @@ let customerList=[
         address:'100 Số 7,P.Bến Thành,Quận 1',
         phonenumber:'0482749284',
         password: 3857264,
-        status:'-1',
+        status:'1',
     },
 ]
 if (localStorage.getItem('customerList')==null){
@@ -64,6 +64,14 @@ if (localStorage.getItem('customerList')==null){
 else{
     json=localStorage.getItem('customerList')
     customerList=JSON.parse(json)
+}
+
+for (let i=0;i<customerList.length;i++){
+    if (customerList[i].code==1)
+    localStorage.setItem(customerList[i].username,{
+        username:customerList[i].username,
+        password:customerList[i].password,
+    })
 }
 
 let order=[

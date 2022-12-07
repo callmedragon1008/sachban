@@ -22,38 +22,13 @@ for (let i=0;i<customerList.length;i++)
             <h4>${customerList[i].phonenumber}</h4>
         </div>
         <div class="col-1" style="text-align:center;">
-            <button type="button" class="btn btn-outline-primary lock-btn"><i class="ri-lock-unlock-line"></i></button>
+            <button type="button" class="btn btn-outline-primary lock-btn"  data-bs-toggle="modal" data-bs-target="#myModal-delete"><i class="ri-lock-unlock-line"></i></button>
             <button type="button" class="btn btn-outline-success btn-edit" data-bs-toggle="modal" data-bs-target="#myModal-edit"><i class="ri-file-settings-line"></i></button>
         </div>
     </div>
     <hr>
     `
 }
-document.getElementById('product-list').innerHTML+=`
-<div class="row">
-    <div class="col-1">
-    </div>
-    <div class="col-3">
-    </div>
-    <div class="col-1">
-    </div>
-    <div class="col-3">
-    </div>
-    <div class="col-3 d-flex justify-content-end">
-        <button class="btn btn-primary rounded-pill mb-2 mb-lg-0" id="btn-save">
-            <span class="d-flex align-items-center">
-                <i class="ri-save-fill"></i>
-                <span>Lưu Thay Đổi</span>
-            </span>
-        </button>
-    </div>
-    <div class="col-1">
-    </div>
-</div>`
-let saveBtn=document.querySelector('#btn-save')
-saveBtn.addEventListener('click',function(){
-    window.location.href="customer.html"
-})
 let lockBtn=document.getElementsByClassName('lock-btn')
 for (let i=0;i<lockBtn.length;i++){
     if (customerList[i].status=='-1'){
@@ -61,18 +36,24 @@ for (let i=0;i<lockBtn.length;i++){
         lockBtn[i].classList.add('btn-outline-danger')
     }
     lockBtn[i].addEventListener('click',function(){
+        let confirmBtn1=document.querySelector('.confirm-button-1')
+        document.getElementById('header-name').innerText=customerList[i].username
+        document.getElementById('modal-text').innerText='Xác nhận mở khóa tài khoản?'
+        confirmBtn1.addEventListener('click',function(){
         customerList[i].status=-parseInt(customerList[i].status)
         json=JSON.stringify(customerList)
         localStorage.setItem('customerList',json)
-        if (lockBtn[i].innerHTML==`<i class="ri-lock-unlock-line"></i>`){
-            lockBtn[i].classList.add('btn-outline-danger')
-            lockBtn[i].innerHTML=`<i class="ri-lock-line"></i>`
-        }
-        else{
-            lockBtn[i].classList.remove('btn-outline-danger')
-            lockBtn[i].innerHTML=`<i class="ri-lock-unlock-line"></i>`
-        }
+        // if (lockBtn[i].innerHTML==`<i class="ri-lock-unlock-line"></i>`){
+        //     lockBtn[i].classList.add('btn-outline-danger')
+        //     lockBtn[i].innerHTML=`<i class="ri-lock-line"></i>`
+        // }
+        // else{
+        //     lockBtn[i].classList.remove('btn-outline-danger')
+        //     lockBtn[i].innerHTML=`<i class="ri-lock-unlock-line"></i>`
+        // }
+        window.location.href='customer.html'
     })
+})
 }
 for (let i=0;i<customerList.length;i++){
     let user = {
