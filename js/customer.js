@@ -97,7 +97,6 @@ for (let i=0;i<editBtn.length;i++){
         document.getElementById('inputNXB').value=customerList[i].phonenumber
         let confirmBtn=document.querySelector("#btn-confirm")
         confirmBtn.addEventListener('click',function(){
-            customerList[i].username=document.getElementById('inputName').value
             customerList[i].email=document.getElementById('inputParValue').value
             customerList[i].password=document.getElementById('inputPrice').value
             customerList[i].address=document.getElementById('inputNumber').value
