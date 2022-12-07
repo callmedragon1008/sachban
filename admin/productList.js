@@ -4,6 +4,9 @@ const newProduct=document.getElementById('product')
 let header=document.getElementById('header')
 header.innerHTML+=product.length;
 let productList=document.getElementById('product-list')
+let code=[]
+for (let i=0;i<40;i++)
+    code.push("."+ product[i].code)
 for (let i=0;i<product.length;i++){
     productList.innerHTML+=`
     <hr>
@@ -15,7 +18,7 @@ for (let i=0;i<product.length;i++){
             <h5>${product[i].name}</h5>
         </div>
         <div class="col-1">
-            <img class="card-img-top" style="width:100%;height:100%;" src="${product[i].code}" alt="Book image">
+            <img class="card-img-top" style="width:100%;height:100%;" src="${code[i]}" alt="Book image">
         </div>
         <div class="col-2">
             <h5 style="text-align:center;">${product[i].type}</h5>
@@ -91,7 +94,7 @@ for (let i=0;i<editBtn.length;i++){
         document.getElementById('inputNXB').value=product[i].NXB
         document.getElementById('inputAuthor').value=product[i].author
         document.getElementById('inputContent').value=describe[i]
-        document.getElementById('image').innerHTML=`<img src="${product[i].code}" alt="" srcset=""  style="width:20em;">`  
+        document.getElementById('image').innerHTML=`<img src="${code[i]}" alt="" srcset=""  style="width:20em;">`  
         for (var j = 0; j < gridRadios.length; j++){
             if (gridRadios[j].value == product[j].type){
                 gridRadios[j].checked = true;
@@ -106,7 +109,7 @@ for (let i=0;i<editBtn.length;i++){
         product[i].NXB=document.getElementById('inputNXB').value
         product[i].author=document.getElementById('inputAuthor').value
         describe[i]=document.getElementById('inputContent').value
-        if (img!='') product[i].code=img.src;
+        if (img!='') code[i]=img.src;
         for (var j = 0; j < gridRadios.length; j++){
             if (gridRadios[j].checked == true)
                 product[i].type=gridRadios[j].value
