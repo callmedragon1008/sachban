@@ -7,6 +7,14 @@ body {
     background-size: cover;
 }
 
+#min-find{
+    width: 87px;
+}
+
+#max-find{
+    width: 87px;
+}
+
 .menu-item {
     padding: 10px 15px;
     display: block;
