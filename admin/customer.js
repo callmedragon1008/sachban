@@ -34,11 +34,11 @@ for (let i=0;i<lockBtn.length;i++){
     if (customerList[i].status=='-1'){
         lockBtn[i].innerHTML=`<i class="ri-lock-line"></i>`
         lockBtn[i].classList.add('btn-outline-danger')
+        document.getElementById('modal-text').innerText='Xác nhận mở khóa tài khoản?'
     }
     lockBtn[i].addEventListener('click',function(){
         let confirmBtn1=document.querySelector('.confirm-button-1')
         document.getElementById('header-name').innerText=customerList[i].username
-        document.getElementById('modal-text').innerText='Xác nhận mở khóa tài khoản?'
         confirmBtn1.addEventListener('click',function(){
         customerList[i].status=-parseInt(customerList[i].status)
         json=JSON.stringify(customerList)
