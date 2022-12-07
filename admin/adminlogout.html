@@ -15,13 +15,13 @@
         <div class="container-fluid h-custom">
         <div class="row d-flex justify-content-center align-items-center h-100">
             <div class="col-md-9 col-lg-6 col-xl-5">
-            <img src="./asset/image/dang-ky-dai-ly-sim-the-dien-thoai-cac-nha-mang-di-dong-tai-viet-nam-removebg-preview.png"
+            <img src="../asset/image/dang-ky-dai-ly-sim-the-dien-thoai-cac-nha-mang-di-dong-tai-viet-nam-removebg-preview.png"
                 class="img-fluid" alt="Sample image">
             </div>
             <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
             <form>
                 <!-- Email input -->
-                <i class="ri-mail-fill"> Email hoặc số điện thoại</i>
+                <i class="ri-mail-fill">Tên đăng nhập</i>
                 <div class="form-outline mb-4">
                 <input type="email" id="form3Example3" class="form-control form-control-lg"
                     placeholder="Nhập email hoặc số điện thoại" />
@@ -29,28 +29,17 @@
                 </div>
     
                 <!-- Password input -->
-                <i class="ri-lock-fill"> Mật khẩu mới</i>
+                <i class="ri-lock-fill"> Mật khẩu</i>
                 <div class="form-outline mb-3">
                 <input type="password" id="form3Example4" class="form-control form-control-lg"
-                    placeholder="Nhập mật khẩu mới" />
+                    placeholder="Nhập mật khẩu" />
                 <label class="form-label" for="form3Example4"></label>
                 </div>
 
+                <a href="../login.html">Đăng nhập khách hàng</a>
+                <button type="button" class="btn btn-primary btn-lg" id="js-login-button"
+                    style="padding-left: 2.5rem; padding-right: 2.5rem;">Đăng nhập</button>
 
-                <!-- repeat Password input -->
-                <i class="ri-key-fill"> Nhập lại mật khẩu mới</i>
-                <div class="form-outline mb-3">
-                    <input type="password" id="form3Example4d" class="form-control form-control-lg"
-                        placeholder="Nhập lại mật khẩu mới" />
-                    <label class="form-label" for="form3Example4d"></label>
-                    </div>
-                <div class="d-flex justify-content-between align-items-center">
-                </div>
-    
-                <div class="text-center text-lg-start mt-4 pt-2">
-                <button type="button" class="btn btn-primary btn-lg"
-                    style="padding-left: 2.5rem; padding-right: 2.5rem;">Xác nhận</button>
-                </div>
     
             </form>
             </div>
@@ -58,7 +47,17 @@
         <!-- Right -->
         </div>
     </section>
-    
-    <script src="./bootstrap-5.0.2-dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script>
+        document.querySelector('#js-login-button').addEventListener('click',function(){
+            console.log(1)
+            if (document.querySelector('#form3Example3').value=='admin'&&document.querySelector('#form3Example4').value=='123'){
+                alert("Xin chào admin Minh");
+                window.location.href='./admin.html'
+    }
+            else
+                alert('Đăng nhập thất bại')
+        })
+    </script>
+    <!-- <script src="./bootstrap-5.0.2-dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script> -->
 </body>
 </html>

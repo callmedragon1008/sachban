@@ -16,11 +16,6 @@ btnLogin.addEventListener('click', (e) => {
     alert("Vui lòng nhập đầy đủ thông tin");
   }
   else{
-    if (username.value=="admin"&&password.value=="123"){
-      alert("Xin chào admin Minh");
-      window.location.href = "admin.html"
-    }
-    else
       if (localStorage.getItem(username.value) == json) {
         alert("Đăng nhập thành công")
         for (let i=0;i<product.length;i++){
