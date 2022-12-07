@@ -160,7 +160,7 @@ btnConfirm.addEventListener('click',function(){
         let describe1=JSON.parse(json)
         describe1.push('describe')
         json=JSON.stringify(describe1)
-        localStorage.setItem('describe',describe1)
+        localStorage.setItem('describe',json)
         alert("Đã thêm sản phẩm")
         window.location.href="addProduct.html"
     }

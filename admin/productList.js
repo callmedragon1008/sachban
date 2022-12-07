@@ -8,6 +8,9 @@ let code=[]
 for (let i=0;i<product.length;i++)
     if (product[i].code.indexOf(".")==0)
         code.push("."+ product[i].code)
+    else
+        code.push(product[i].code)
+
 for (let i=0;i<product.length;i++){
     productList.innerHTML+=`
     <hr>
@@ -57,9 +60,12 @@ for (let i=0;i<deleteBtn.length;i++){
         `
         let confirmBtn=document.querySelector('.confirm-button')
         confirmBtn.addEventListener('click',function(){
+            describe.splice(i,1)
             product.splice(i,1)
             json=JSON.stringify(product)
             localStorage.setItem('product',json)
+            json=JSON.stringify(describe)
+            localStorage.setItem('describe',json)
             window.location.href='productList.html'
         })
     })
