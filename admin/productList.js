@@ -5,8 +5,9 @@ let header=document.getElementById('header')
 header.innerHTML+=product.length;
 let productList=document.getElementById('product-list')
 let code=[]
-for (let i=0;i<40;i++)
-    code.push("."+ product[i].code)
+for (let i=0;i<product.length;i++)
+    if (product[i].code.indexOf(".")==0)
+        code.push("."+ product[i].code)
 for (let i=0;i<product.length;i++){
     productList.innerHTML+=`
     <hr>
