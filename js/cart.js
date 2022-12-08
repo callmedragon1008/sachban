@@ -122,7 +122,7 @@ for (let i=0;i<btnMinus.length;i++)
 for (let i=0;i<btnPlus.length;i++)
 {
     btnPlus[i].addEventListener('click',function(){
-        if (product[count[i]].number>(cart[count[i]])){
+        if (product[count[i]].number>0){
             cart1[i].innerHTML=cart[count[i]]+1;
             cart[count[i]]++;
             numberCart++;
