@@ -88,7 +88,9 @@ for (let i=0;i<editBtn.length;i++){
         <div class="col-2 d-flex" style="padding-top:40px;">
             <h5 class="sum-cart">${(parseInt(product[j].cost)*parseInt(order[bill[i]].detail[j])).toLocaleString()}đ</h5>
         </div>
-    </div>`
+    </div>
+    <br>
+    `
     
         }
         document.getElementById('modal-order').innerHTML+=
