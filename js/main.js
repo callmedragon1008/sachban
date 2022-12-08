@@ -434,9 +434,6 @@ for (let i=0;i<btnModals.length;i++){
 })
 }
 
-   
-    
-
 // header,login
 if (status1==1){
     headerLogin.classList.add('disappear')

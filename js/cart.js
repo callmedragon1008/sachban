@@ -79,15 +79,12 @@ for (let i=0;i<btnDeletes.length;i++)
             numberCart=numberCart-cart[count[i]];
             document.querySelector('.cart span').innerText = numberCart;
             localStorage.setItem("numberCart",numberCart)
-            temp=parseInt(cart[count[i]].cost)*parseInt(cart[count[i]])
+            temp=parseInt(product[count[i]].cost)*parseInt(cart[count[i]])
             sum=sum-temp
-            sum1=sum.toLocaleString();
+            let sum1=sum.toLocaleString();
             productTotal.innerHTML=`
             <span>${sum1}đ<span>
         `
-        if (sum1=='NaN') productTotal.innerHTML=`
-        <span>0đ<span>
-    `
             sumCart[i].innerText=temp
             cart[count[i]]=0
             temp=JSON.stringify(cart)
