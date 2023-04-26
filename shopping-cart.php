@@ -38,7 +38,7 @@
     <div id="header">
         <nav class="navbar navbar-expand-lg bg-light navbar-light fixed-top shadow-sm mb" id="mainNav">
             <div class="container-fluid px-5">
-                <a class="navbar-brand fw-bold header-logo" href="index.html">
+                <a class="navbar-brand fw-bold header-logo" href="index.php">
                     <img src="./asset/image/Untitled.png" alt="Logo" style="width:40px;" class="rounded-pill me-2">
                     Chú Khỉ Buồn
                 </a>
@@ -49,19 +49,19 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto me-4 my-3 my-lg-0">
                         <li class="cart nav-item">
-                            <a class="nav-link me-lg-3" href="./donhangdadat.html" id="cart-1" type="button" onclick="if (status1!=1) alert('Vui lòng đăng nhập để xem đơn hàng đã đặt')">
+                            <a class="nav-link me-lg-3" href="./donhangdadat.php" id="cart-1" type="button" onclick="if (status1!=1) alert('Vui lòng đăng nhập để xem đơn hàng đã đặt')">
                                 <i class="ri-luggage-cart-line"></i> Đơn hàng đã đặt
                             </a>
                         </li>
                         <li class="cart nav-item">
-                            <a class=" nav-link me-lg-3" href="./shopping-cart.html">
+                            <a class=" nav-link me-lg-3" href="./shopping-cart.php">
                                 <i class="ti-shopping-cart"></i> Giỏ hàng (<span>0</span>)
                             </a>
                         </li>
                         <li class="nav-item header-user-name disappear"></li>
-                        <li class="nav-item header-log-out disappear"><a class="nav-link me-lg-3" href="./index.html"><i class="ri-login-box-line"></i> Đăng xuất</a></li>
-                        <!-- <li class="nav-item header-account"><a class="nav-link me-lg-3" href="./Register.html"><i class="ri-edit-2-line"></i> Đăng Ký</a></li> -->
-                        <li class="nav-item header-login"><a class="nav-link me-lg-3" href="./login.html"><i class="ri-login-box-line"></i> Đăng Nhập/Đăng Ký</a></li>
+                        <li class="nav-item header-log-out disappear"><a class="nav-link me-lg-3" href="./index.php"><i class="ri-login-box-line"></i> Đăng xuất</a></li>
+                        <!-- <li class="nav-item header-account"><a class="nav-link me-lg-3" href="./Register.php"><i class="ri-edit-2-line"></i> Đăng Ký</a></li> -->
+                        <li class="nav-item header-login"><a class="nav-link me-lg-3" href="./login.php"><i class="ri-login-box-line"></i> Đăng Nhập/Đăng Ký</a></li>
                     </ul>
                 </div>
             </div>
@@ -200,3 +200,4 @@
     <!-- <script src="./js/main.js"></script> -->
     <script src="./js/cart.js"></script>
 </body>
+</html>

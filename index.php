@@ -10,25 +10,47 @@
     <link rel="stylesheet" href="./asset/fonts/remixicon.css">
     <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <title>Document</title>
+    <style>
+      input::-webkit-outer-spin-button,
+      input::-webkit-inner-spin-button {
+          -webkit-appearance: none;
+          margin: 0;
+      }
+
+      input[type=number] {
+          -moz-appearance: textfield;
+      }
+  </style>
 </head>
 <body style="overflow-x: hidden;">
     <!-- header -->
     <div id="header">
-        <nav class="navbar navbar-expand-lg bg-light navbar-light fixed-top shadow-sm mb" id="mainNav">
+        <nav class="navbar navbar-expand-xl navbar-light bg-light fixed-top shadow-sm mb" id="mainNav">
             <div class="container-fluid px-5">
-                <a class="navbar-brand fw-bold header-logo" href="index.html">
+                <a class="navbar-brand fw-bold header-logo" href="index.php">
                     <img src="./asset/image/Untitled.png" alt="Logo" style="width:40px;" class="rounded-pill me-2">
                     Chú Khỉ Buồn
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                    Menu
+                    Danh mục
                     <i class="bi-list"></i>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav ms-auto me-4 my-3 my-lg-0">
+                    <ul class="navbar-nav ms-auto me-4 my-3 my-lg-0 d-flex align-items-center">
+                      <div class="dropdown">
+                        <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          Thể loại
+                        </button>
+                        <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="#">Tiểu thuyết</a></li>
+                          <li><a class="dropdown-item" href="#">Tâm lý</a></li>
+                          <li><a class="dropdown-item" href="#">Kinh dị - Giả tưởng</a></li>
+                          <li><a class="dropdown-item" href="#">Tản văn - Tạp văn</a></li>
+                        </ul>
+                      </div>
                         <li class="nav-item">
                             <form class="d-flex me-lg-3">
-                                <input class="form-control me-2" id="search-input" type="text" placeholder="Tìm kiếm" size="5px;">
+                                <input class="form-control me-2" id="search-input" type="text" placeholder="Tìm" size="5px;">
                                 <select class="form-select form-select-sm" id="select-bottom" style="width: 200px;margin-right: 14px;" aria-label=".form-select-sm example">
                                     <option value="0" selected="selected">Thể loại</option>
                                     <option value="1">Tiểu thuyết</option>
@@ -40,30 +62,36 @@
                                 <!-- <select class="form-select form-select-sm" :style="width 120px;margin-right: 14px;" aria-label=".form-select-sm example">
                                     <option value="0" selected="selected">10.000đ</option>
                                 </select> -->
-                                <input class="form-control me-2" id="min-find" type="number" size="5px;" style="width: 120px;" >
+                                <input class="form-control me-2" id="min-find" type="number" size="5px;" style="width: 87px; " >
                                 <p style="min-width:40px;margin-bottom: 0px;margin-top: 9px;">Đến</p>
                                 <!-- <select class="form-select form-select-sm" style="width: 120px;margin-right: 14px;" aria-label=".form-select-sm example">
                                     <option value="0" selected="selected">500.000đ</option>
                                 </select> -->
-                                <input class="form-control me-2" id="max-find" type="number" size="5px;" style="width: 120px;">
+                                <input class="form-control me-2" id="max-find" type="number" size="5px;" style="width: 87px;">
                                 <button class="btn btn-primary" id="search-icon" type="button">
                                     <i class="ti-search"></i>
                                 </button>
                             </form>
                         </li>
+                        
                         <li class="cart nav-item">
-                            <a class=" nav-link me-lg-3" href="./shopping-cart.html">
+                            <a class=" nav-link me-lg-3" href="./shopping-cart.php" style="white-space: nowrap;">
                                 <i class="ti-shopping-cart"></i>  Giỏ hàng (<span>0</span>)
                             </a>
                         </li>
                         <li class="nav-item header-user-name disappear"></li>
-                        <li class="nav-item header-log-out disappear"><a class="nav-link me-lg-3" href="./index.html"><i class="ri-logout-box-line"></i> Đăng xuất</a></li>
-                        <!-- <li class="nav-item header-account"><a class="nav-link me-lg-3" href="./Register.html"><i class="ri-edit-2-line"></i> Đăng Ký</a></li> -->
-                        <li class="nav-item header-login"><a class="nav-link me-lg-3" href="./login.html"><i class="ri-login-box-line"></i> Đăng Nhập/Đăng Ký</a></li>
-                    </ul>
+                        <li class="nav-item header-log-out disappear"><a class="nav-link me-lg-3" href="./index.php" style="white-space: nowrap;"><i class="ri-logout-box-line"></i> Đăng xuất</a></li>
+                        <!-- <li class="nav-item header-account"><a class="nav-link me-lg-3" href="./Register.php"><i class="ri-edit-2-line"></i> Đăng Ký</a></li> -->
+                        <li class="nav-item header-login"><a class="nav-link me-lg-3" href="./login.php" style="white-space: nowrap;"><i class="ri-login-box-line"></i> Đăng Nhập/Đăng Ký</a></li>
+                      
+                      </ul>
+                    
                 </div>
+                
             </div>
+            
         </nav>
+       
     </div>
 
      <div id="content" class="mt-5 pt-3">
@@ -78,10 +106,10 @@
             </div>
           </div>
         </header>
-       
+
             <div class="col py-3">
                 <div class="row d-flex justify-content-center" id="card-list">
-                    <h2 class="text-center mt-3 pt-3" id="list-item-1">Kết quả tìm kiếm</h2>  
+                    <h2 class="text-center mt-3 pt-3" id="list-item-1">Danh sách sản phẩm</h2>  
                 </div>
             </div>
                 
@@ -189,7 +217,7 @@
               </div>
         </div>
     </footer>
-    <script src="./js/search.js"></script>
+    <script src="./js/main.js"></script>
     <!-- <script src="./js/cart.js"></script> -->
 </body>
 </html>

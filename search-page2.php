@@ -16,7 +16,7 @@
     <div id="header">
         <nav class="navbar navbar-expand-lg bg-light navbar-light fixed-top shadow-sm mb" id="mainNav">
             <div class="container-fluid px-5">
-                <a class="navbar-brand fw-bold header-logo" href="index.html">
+                <a class="navbar-brand fw-bold header-logo" href="index.php">
                     <img src="./asset/image/Untitled.png" alt="Logo" style="width:40px;" class="rounded-pill me-2">
                     Chú Khỉ Buồn
                 </a>
@@ -52,14 +52,14 @@
                             </form>
                         </li>
                         <li class="cart nav-item">
-                            <a class=" nav-link me-lg-3" href="./shopping-cart.html">
+                            <a class=" nav-link me-lg-3" href="./shopping-cart.php">
                                 <i class="ti-shopping-cart"></i>  Giỏ hàng (<span>0</span>)
                             </a>
                         </li>
                         <li class="nav-item header-user-name disappear"></li>
-                        <li class="nav-item header-log-out disappear"><a class="nav-link me-lg-3" href="./index.html"><i class="ri-logout-box-line"></i> Đăng xuất</a></li>
-                        <!-- <li class="nav-item header-account"><a class="nav-link me-lg-3" href="./Register.html"><i class="ri-edit-2-line"></i> Đăng Ký</a></li> -->
-                        <li class="nav-item header-login"><a class="nav-link me-lg-3" href="./login.html"><i class="ri-login-box-line"></i> Đăng Nhập/Đăng Ký</a></li>
+                        <li class="nav-item header-log-out disappear"><a class="nav-link me-lg-3" href="./index.php"><i class="ri-logout-box-line"></i> Đăng xuất</a></li>
+                        <!-- <li class="nav-item header-account"><a class="nav-link me-lg-3" href="./Register.php"><i class="ri-edit-2-line"></i> Đăng Ký</a></li> -->
+                        <li class="nav-item header-login"><a class="nav-link me-lg-3" href="./login.php"><i class="ri-login-box-line"></i> Đăng Nhập/Đăng Ký</a></li>
                     </ul>
                 </div>
             </div>
@@ -81,7 +81,7 @@
        
             <div class="col py-3">
                 <div class="row d-flex justify-content-center" id="card-list">
-                    <h2 class="text-center mt-3 pt-3" id="list-item-1">Danh sách sản phẩm</h2>  
+                    <h2 class="text-center mt-3 pt-3" id="list-item-1">Kết quả tìm kiếm</h2>  
                 </div>
             </div>
                 
@@ -189,7 +189,7 @@
               </div>
         </div>
     </footer>
-    <script src="./js/main.js"></script>
+    <script src="./js/search-page2.js"></script>
     <!-- <script src="./js/cart.js"></script> -->
 </body>
 </html>
